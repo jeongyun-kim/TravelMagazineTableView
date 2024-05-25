@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E05A62B42C01B87300B4DDF9 /* TravelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62B32C01B87300B4DDF9 /* TravelTableViewController.swift */; };
+		E05A62B82C01B8A600B4DDF9 /* TravelMagazine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05A62B72C01B8A600B4DDF9 /* TravelMagazine.storyboard */; };
+		E05A62BA2C01BB1700B4DDF9 /* MagazineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62B92C01BB1700B4DDF9 /* MagazineCell.swift */; };
+		E05A62BD2C01C1D300B4DDF9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E05A62BC2C01C1D300B4DDF9 /* Kingfisher */; };
 		E0D80E5B2C00A90400EAF595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */; };
 		E0D80E5D2C00A90400EAF595 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */; };
 		E0D80E5F2C00A90400EAF595 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5E2C00A90400EAF595 /* ViewController.swift */; };
 		E0D80E622C00A90400EAF595 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E612C00A90400EAF595 /* Base */; };
 		E0D80E642C00A90400EAF595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E632C00A90400EAF595 /* Assets.xcassets */; };
 		E0D80E672C00A90400EAF595 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E662C00A90400EAF595 /* Base */; };
+		E0D80E6F2C00A91200EAF595 /* Magazine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E6E2C00A91200EAF595 /* Magazine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E05A62B32C01B87300B4DDF9 /* TravelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTableViewController.swift; sourceTree = "<group>"; };
+		E05A62B72C01B8A600B4DDF9 /* TravelMagazine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TravelMagazine.storyboard; sourceTree = "<group>"; };
+		E05A62B92C01BB1700B4DDF9 /* MagazineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineCell.swift; sourceTree = "<group>"; };
 		E0D80E572C00A90400EAF595 /* TableView_Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableView_Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +32,7 @@
 		E0D80E632C00A90400EAF595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0D80E662C00A90400EAF595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0D80E682C00A90400EAF595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0D80E6E2C00A91200EAF595 /* Magazine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magazine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05A62BD2C01C1D300B4DDF9 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +73,10 @@
 				E0D80E632C00A90400EAF595 /* Assets.xcassets */,
 				E0D80E652C00A90400EAF595 /* LaunchScreen.storyboard */,
 				E0D80E682C00A90400EAF595 /* Info.plist */,
+				E0D80E6E2C00A91200EAF595 /* Magazine.swift */,
+				E05A62B32C01B87300B4DDF9 /* TravelTableViewController.swift */,
+				E05A62B72C01B8A600B4DDF9 /* TravelMagazine.storyboard */,
+				E05A62B92C01BB1700B4DDF9 /* MagazineCell.swift */,
 			);
 			path = TableView_Travel;
 			sourceTree = "<group>";
@@ -83,6 +97,9 @@
 			dependencies = (
 			);
 			name = TableView_Travel;
+			packageProductDependencies = (
+				E05A62BC2C01C1D300B4DDF9 /* Kingfisher */,
+			);
 			productName = TableView_Travel;
 			productReference = E0D80E572C00A90400EAF595 /* TableView_Travel.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +128,9 @@
 				Base,
 			);
 			mainGroup = E0D80E4E2C00A90400EAF595;
+			packageReferences = (
+				E05A62BB2C01C1D300B4DDF9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = E0D80E582C00A90400EAF595 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +147,7 @@
 			files = (
 				E0D80E642C00A90400EAF595 /* Assets.xcassets in Resources */,
 				E0D80E672C00A90400EAF595 /* Base in Resources */,
+				E05A62B82C01B8A600B4DDF9 /* TravelMagazine.storyboard in Resources */,
 				E0D80E622C00A90400EAF595 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +160,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D80E5F2C00A90400EAF595 /* ViewController.swift in Sources */,
+				E0D80E6F2C00A91200EAF595 /* Magazine.swift in Sources */,
 				E0D80E5B2C00A90400EAF595 /* AppDelegate.swift in Sources */,
 				E0D80E5D2C00A90400EAF595 /* SceneDelegate.swift in Sources */,
+				E05A62B42C01B87300B4DDF9 /* TravelTableViewController.swift in Sources */,
+				E05A62BA2C01BB1700B4DDF9 /* MagazineCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,13 +316,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TableView_Travel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TravelMagazine;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,9 +332,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jeongyun.TableView-Travel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,13 +349,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L348QC8MG7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TableView_Travel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TravelMagazine;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,9 +365,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jeongyun.TableView-Travel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -361,6 +397,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E05A62BB2C01C1D300B4DDF9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E05A62BC2C01C1D300B4DDF9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E05A62BB2C01C1D300B4DDF9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0D80E4F2C00A90400EAF595 /* Project object */;
 }
