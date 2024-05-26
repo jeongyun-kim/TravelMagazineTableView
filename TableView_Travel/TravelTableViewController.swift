@@ -19,6 +19,7 @@ class TravelTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 450
         // 셀 간 구분선 없애기
         tableView.separatorStyle = .none
+        navigationItem.title = "SeSAC TRAVEL"
     }
     
     // 테이블뷰에 들어갈 셀의 개수
