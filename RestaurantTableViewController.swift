@@ -58,14 +58,18 @@ class RestaurantTableViewController: UITableViewController {
     
     @objc func likeBtnTapped(_ sender: UIButton) {
         restaurantList[sender.tag].isLiked.toggle()
-        temp[sender.tag] = restaurantList[sender.tag]
+        // 원본 데이터에 현재 좋아요 누른 데이터의 인덱스 찾아서 좋아요 반영
+        let data = restaurantList[sender.tag]
+        if let idx = temp.firstIndex(where: { $0.name == data.name}) {
+            temp[idx].isLiked.toggle()
+        }
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
     
     @IBAction func searchBtnTapped(_ sender: Any) {
         guard let keyword = searchTextField.text else { return }
         
-        if keyword.components(separatedBy: " ").joined().count > 0 {
+        if !keyword.isEmpty {
             let searchedDatas = temp.filter {
                 $0.name.contains(keyword) || $0.category.contains(keyword)
             }
@@ -77,7 +81,7 @@ class RestaurantTableViewController: UITableViewController {
     
     @IBAction func editingTextField(_ sender: UITextField) {
         guard let keyword = searchTextField.text else { return }
-        if keyword.components(separatedBy: " ").joined().count == 0 {
+        if keyword.isEmpty {
             restaurantList = temp
         }
         tableView.reloadData()
