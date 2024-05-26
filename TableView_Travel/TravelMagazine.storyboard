@@ -107,11 +107,11 @@
             </objects>
             <point key="canvasLocation" x="406.87022900763355" y="-391.54929577464793"/>
         </scene>
-        <!--Item-->
+        <!--Travel-->
         <scene sceneID="7Tf-fT-5eD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a6T-s9-Zae" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vQf-nf-CmH"/>
+                    <tabBarItem key="tabBarItem" title="Travel" image="airplane.circle.fill" catalog="system" id="vQf-nf-CmH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sq6-v6-zJU">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -134,9 +134,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="kx1-2W-YnW">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="57"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBA-oM-w7O">
+                                    <rect key="frame" x="16" y="8" width="307" height="41"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="editingTextField:" destination="zlX-xG-aGU" eventType="editingChanged" id="DJu-5s-2aD"/>
+                                        <action selector="searchBtnTapped:" destination="zlX-xG-aGU" eventType="editingDidEndOnExit" id="ZG9-GA-kJu"/>
+                                    </connections>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAL-wV-aQY">
+                                    <rect key="frame" x="331" y="13.666666666666664" width="46" height="30"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="searchBtnTapped:" destination="zlX-xG-aGU" eventType="touchUpInside" id="tt7-IO-hIh"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="eAL-wV-aQY" firstAttribute="centerY" secondItem="kx1-2W-YnW" secondAttribute="centerY" id="6zn-of-6RT"/>
+                                <constraint firstAttribute="trailing" secondItem="eAL-wV-aQY" secondAttribute="trailing" constant="16" id="N5c-XK-DkN"/>
+                                <constraint firstItem="PBA-oM-w7O" firstAttribute="top" secondItem="kx1-2W-YnW" secondAttribute="top" constant="8" id="OJO-Os-hn5"/>
+                                <constraint firstItem="PBA-oM-w7O" firstAttribute="leading" secondItem="kx1-2W-YnW" secondAttribute="leading" constant="16" id="XrS-6v-rwa"/>
+                                <constraint firstAttribute="bottom" secondItem="PBA-oM-w7O" secondAttribute="bottom" constant="8" id="oUf-3j-uac"/>
+                                <constraint firstItem="eAL-wV-aQY" firstAttribute="leading" secondItem="PBA-oM-w7O" secondAttribute="trailing" constant="8" id="ta6-XX-fQg"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RestaurantCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="185" id="aYh-gz-n8K" customClass="RestaurantCell" customModule="TableView_Travel" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="185"/>
+                                <rect key="frame" x="0.0" y="107" width="393" height="185"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aYh-gz-n8K" id="jem-8y-rOy">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="185"/>
@@ -219,16 +251,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="U2c-x0-uS2"/>
+                    <connections>
+                        <outlet property="searchBtn" destination="eAL-wV-aQY" id="s8B-b4-GoM"/>
+                        <outlet property="searchTextField" destination="PBA-oM-w7O" id="D16-TV-I2I"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbb-k6-r7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1375" y="1139"/>
+            <point key="canvasLocation" x="1374.8091603053435" y="1138.7323943661972"/>
         </scene>
-        <!--Item-->
+        <!--Restaurant-->
         <scene sceneID="Rjh-E4-4Co">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CLQ-tm-rBS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BRg-hN-g71"/>
+                    <tabBarItem key="tabBarItem" title="Restaurant" image="fork.knife.circle.fill" catalog="system" id="BRg-hN-g71"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8wM-7p-UM5">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -245,6 +281,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="airplane.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="fork.knife.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
