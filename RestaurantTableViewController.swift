@@ -9,7 +9,7 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     
-    let restaurantList = RestaurantList().restaurantArray.map {
+    var restaurantList = RestaurantList().restaurantArray.map {
         RestaurantData(image: $0.image, latitude: $0.latitude, longitude: $0.longitude, name: $0.name, address: $0.address, phoneNumber: $0.phoneNumber, category: $0.category, price: $0.price, type: $0.type, isLiked: false)
     }
     
@@ -30,8 +30,15 @@ class RestaurantTableViewController: UITableViewController {
         let data = restaurantList[indexPath.row]
         
         cell.configure(imageLink: data.image, name: data.name, phonenumber: data.phoneNumber, address: data.address, category: data.category, isLiked: data.isLiked)
+        cell.likeBtn.tag = indexPath.row
+        cell.likeBtn.addTarget(self, action: #selector(likeBtnTapped), for: .touchUpInside)
         
         return cell
+    }
+    
+    @objc func likeBtnTapped(_ sender: UIButton) {
+        restaurantList[sender.tag].isLiked.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
 }
 
