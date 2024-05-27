@@ -22,14 +22,13 @@ class RestaurantCell: UITableViewCell {
     }
     
     func configureLayout() {
-        thumbnailImageView.layer.cornerRadius = 10
-        thumbnailImageView.contentMode = .scaleAspectFill
+        thumbnailImageView.setImageViewDesign()
         
-        nameLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        nameLabel.setLabelDesign(bold: true, size: 15, color: .black)
         
-        phonenumberLabel.setSecondaryLabel()
+        phonenumberLabel.setLabelDesign()
         
-        addressLabel.setSecondaryLabel()
+        addressLabel.setLabelDesign()
         addressLabel.numberOfLines = 0
     
         categoryBtn.isEnabled = false

@@ -87,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="siJ-6O-nmC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="407" y="1140"/>
+            <point key="canvasLocation" x="-547" y="1139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6B0-KU-zA8">
@@ -102,6 +102,7 @@
                     <connections>
                         <segue destination="a6T-s9-Zae" kind="relationship" relationship="viewControllers" id="hFf-qe-tYN"/>
                         <segue destination="CLQ-tm-rBS" kind="relationship" relationship="viewControllers" id="eAt-Gb-o5P"/>
+                        <segue destination="Jrn-Mu-Ogu" kind="relationship" relationship="viewControllers" id="q4x-T1-Xhe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjr-3R-S6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,7 +126,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQY-HD-sXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="407" y="339"/>
+            <point key="canvasLocation" x="-547" y="370"/>
         </scene>
         <!--Restaurant Table View Controller-->
         <scene sceneID="oLA-sC-zqc">
@@ -234,7 +235,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbb-k6-r7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374.8091603053435" y="1138.7323943661972"/>
+            <point key="canvasLocation" x="407" y="1139"/>
         </scene>
         <!--Restaurant-->
         <scene sceneID="Rjh-E4-4Co">
@@ -253,11 +254,41 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAk-rJ-ICr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374.8091603053435" y="338.73239436619718"/>
+            <point key="canvasLocation" x="407" y="370"/>
+        </scene>
+        <!--CityViewController-->
+        <scene sceneID="V3y-mG-WHY">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="City" storyboardName="City" referencedIdentifier="CityViewController" id="x6M-Ht-YD5" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="tDd-4A-QeC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8f-Sq-2Pn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1389" y="833"/>
+        </scene>
+        <!--City-->
+        <scene sceneID="JWT-Cx-4KN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jrn-Mu-Ogu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="City" image="building.2.fill" catalog="system" id="JYm-xc-B7m"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W59-7G-99N">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x6M-Ht-YD5" kind="relationship" relationship="rootViewController" id="Hfg-26-Fts"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PJS-dV-MTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1389" y="370"/>
         </scene>
     </scenes>
     <resources>
         <image name="airplane.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="building.2.fill" catalog="system" width="128" height="117"/>
         <image name="fork.knife.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
