@@ -95,6 +95,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="vV4-Tz-pqy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LET-B1-X22">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -134,38 +135,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="kx1-2W-YnW">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="sh1-TO-iU3">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="57"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBA-oM-w7O">
-                                    <rect key="frame" x="16" y="8" width="307" height="41"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <action selector="editingTextField:" destination="zlX-xG-aGU" eventType="editingChanged" id="DJu-5s-2aD"/>
-                                        <action selector="searchBtnTapped:" destination="zlX-xG-aGU" eventType="editingDidEndOnExit" id="ZG9-GA-kJu"/>
-                                    </connections>
-                                </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAL-wV-aQY">
-                                    <rect key="frame" x="331" y="13.666666666666664" width="46" height="30"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="Button"/>
-                                    <connections>
-                                        <action selector="searchBtnTapped:" destination="zlX-xG-aGU" eventType="touchUpInside" id="tt7-IO-hIh"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="eAL-wV-aQY" firstAttribute="centerY" secondItem="kx1-2W-YnW" secondAttribute="centerY" id="6zn-of-6RT"/>
-                                <constraint firstAttribute="trailing" secondItem="eAL-wV-aQY" secondAttribute="trailing" constant="16" id="N5c-XK-DkN"/>
-                                <constraint firstItem="PBA-oM-w7O" firstAttribute="top" secondItem="kx1-2W-YnW" secondAttribute="top" constant="8" id="OJO-Os-hn5"/>
-                                <constraint firstItem="PBA-oM-w7O" firstAttribute="leading" secondItem="kx1-2W-YnW" secondAttribute="leading" constant="16" id="XrS-6v-rwa"/>
-                                <constraint firstAttribute="bottom" secondItem="PBA-oM-w7O" secondAttribute="bottom" constant="8" id="oUf-3j-uac"/>
-                                <constraint firstItem="eAL-wV-aQY" firstAttribute="leading" secondItem="PBA-oM-w7O" secondAttribute="trailing" constant="8" id="ta6-XX-fQg"/>
-                            </constraints>
-                        </view>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="zlX-xG-aGU" id="Cc2-io-ayp"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RestaurantCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="185" id="aYh-gz-n8K" customClass="RestaurantCell" customModule="TableView_Travel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="107" width="393" height="185"/>
@@ -252,8 +229,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="U2c-x0-uS2"/>
                     <connections>
-                        <outlet property="searchBtn" destination="eAL-wV-aQY" id="s8B-b4-GoM"/>
-                        <outlet property="searchTextField" destination="PBA-oM-w7O" id="D16-TV-I2I"/>
+                        <outlet property="searchBar" destination="sh1-TO-iU3" id="gGv-fU-w8r"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbb-k6-r7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -14,6 +14,7 @@
 		E05A62C02C02D74A00B4DDF9 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62BF2C02D74A00B4DDF9 /* Restaurant.swift */; };
 		E05A62C42C02D83300B4DDF9 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62C32C02D83300B4DDF9 /* RestaurantTableViewController.swift */; };
 		E05A62C62C02D84D00B4DDF9 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62C52C02D84D00B4DDF9 /* RestaurantCell.swift */; };
+		E05A62DA2C04651A00B4DDF9 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62D92C04651A00B4DDF9 /* UILabel + Extension.swift */; };
 		E0D80E5B2C00A90400EAF595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */; };
 		E0D80E5D2C00A90400EAF595 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */; };
 		E0D80E5F2C00A90400EAF595 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5E2C00A90400EAF595 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		E05A62BF2C02D74A00B4DDF9 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		E05A62C32C02D83300B4DDF9 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		E05A62C52C02D84D00B4DDF9 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
+		E05A62D92C04651A00B4DDF9 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		E0D80E572C00A90400EAF595 /* TableView_Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableView_Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		E0D80E4E2C00A90400EAF595 = {
 			isa = PBXGroup;
 			children = (
+				E05A62D92C04651A00B4DDF9 /* UILabel + Extension.swift */,
 				E05A62C52C02D84D00B4DDF9 /* RestaurantCell.swift */,
 				E05A62C32C02D83300B4DDF9 /* RestaurantTableViewController.swift */,
 				E0D80E592C00A90400EAF595 /* TableView_Travel */,
@@ -182,6 +185,7 @@
 				E0D80E5B2C00A90400EAF595 /* AppDelegate.swift in Sources */,
 				E05A62C02C02D74A00B4DDF9 /* Restaurant.swift in Sources */,
 				E05A62C62C02D84D00B4DDF9 /* RestaurantCell.swift in Sources */,
+				E05A62DA2C04651A00B4DDF9 /* UILabel + Extension.swift in Sources */,
 				E0D80E5D2C00A90400EAF595 /* SceneDelegate.swift in Sources */,
 				E05A62B42C01B87300B4DDF9 /* TravelTableViewController.swift in Sources */,
 				E05A62BA2C01BB1700B4DDF9 /* MagazineCell.swift in Sources */,
