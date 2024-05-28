@@ -55,6 +55,5 @@ class RestaurantCell: UITableViewCell {
         let likeImage = data.isLiked ? "heart.fill" : "heart"
         likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
         likeBtn.setTitle("", for: .normal)
-        
     }
 }
