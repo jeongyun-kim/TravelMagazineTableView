@@ -56,12 +56,21 @@
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YCf-vD-w99">
                                         <rect key="frame" x="30" y="0.0" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="YCf-vD-w99" secondAttribute="height" multiplier="1:1" id="JjN-5n-OAF"/>
+                                        </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4AZ-d1-64Y">
                                         <rect key="frame" x="45" y="0.0" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4AZ-d1-64Y" secondAttribute="height" multiplier="1:1" id="OKR-Tq-t7a"/>
+                                        </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qqW-aS-dxM">
                                         <rect key="frame" x="60" y="0.0" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qqW-aS-dxM" secondAttribute="height" multiplier="1:1" id="fPy-JM-uo1"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -69,8 +78,6 @@
                                     <constraint firstItem="moP-ls-qgN" firstAttribute="leading" secondItem="vGy-f0-sji" secondAttribute="leading" id="7jW-UE-2fa"/>
                                     <constraint firstItem="ql9-y4-o3p" firstAttribute="top" secondItem="vGy-f0-sji" secondAttribute="top" id="ESh-Gp-yJa"/>
                                     <constraint firstAttribute="bottom" secondItem="moP-ls-qgN" secondAttribute="bottom" id="Hjh-xm-7Rl"/>
-                                    <constraint firstItem="YCf-vD-w99" firstAttribute="width" secondItem="YCf-vD-w99" secondAttribute="height" multiplier="1:1" id="JjN-5n-OAF"/>
-                                    <constraint firstItem="4AZ-d1-64Y" firstAttribute="width" secondItem="4AZ-d1-64Y" secondAttribute="height" multiplier="1:1" id="OKR-Tq-t7a"/>
                                     <constraint firstItem="4AZ-d1-64Y" firstAttribute="leading" secondItem="YCf-vD-w99" secondAttribute="trailing" id="TmF-oG-JYS"/>
                                     <constraint firstAttribute="bottom" secondItem="ql9-y4-o3p" secondAttribute="bottom" id="UTq-Sb-1GG"/>
                                     <constraint firstAttribute="bottom" secondItem="YCf-vD-w99" secondAttribute="bottom" id="WKd-E8-1RJ"/>
@@ -78,7 +85,6 @@
                                     <constraint firstItem="qqW-aS-dxM" firstAttribute="top" secondItem="vGy-f0-sji" secondAttribute="top" id="ZCq-4G-4XY"/>
                                     <constraint firstItem="YCf-vD-w99" firstAttribute="leading" secondItem="ql9-y4-o3p" secondAttribute="trailing" id="aGo-P5-7OD"/>
                                     <constraint firstAttribute="bottom" secondItem="qqW-aS-dxM" secondAttribute="bottom" id="bd1-aa-2t6"/>
-                                    <constraint firstItem="qqW-aS-dxM" firstAttribute="width" secondItem="qqW-aS-dxM" secondAttribute="height" multiplier="1:1" id="fPy-JM-uo1"/>
                                     <constraint firstItem="YCf-vD-w99" firstAttribute="top" secondItem="vGy-f0-sji" secondAttribute="top" id="nPO-Sv-Lsf"/>
                                     <constraint firstAttribute="bottom" secondItem="4AZ-d1-64Y" secondAttribute="bottom" id="nhg-Zq-pRM"/>
                                     <constraint firstItem="qqW-aS-dxM" firstAttribute="leading" secondItem="4AZ-d1-64Y" secondAttribute="trailing" id="oEs-Id-TaL"/>

@@ -9,6 +9,8 @@ import UIKit
 import Kingfisher
 
 class RestaurantCell: UITableViewCell {
+    static let identifier = "RestaurantCell"
+    
     @IBOutlet var likeBtn: UIButton!
     @IBOutlet var thumbnailImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
@@ -38,14 +40,19 @@ class RestaurantCell: UITableViewCell {
         likeBtn.tintColor = .systemPink
     }
     
-    func configureCell(imageLink: String, name: String, phonenumber: String, address: String, category: String, isLiked: Bool) {
-        let url = URL(string: imageLink)
+    func configureCell(_ data: RestaurantData) {
+        let url = URL(string: data.image)
         thumbnailImageView.kf.setImage(with: url)
-        nameLabel.text = name
-        phonenumberLabel.text = phonenumber
-        addressLabel.text = address
-        categoryBtn.setAttributedTitle(NSAttributedString(string: category, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray.cgColor]), for: .normal)
-        let likeImage = isLiked ? "heart.fill" : "heart"
+        
+        nameLabel.text = data.name
+        
+        phonenumberLabel.text = data.phoneNumber
+        
+        addressLabel.text = data.address
+        
+        categoryBtn.setAttributedTitle(NSAttributedString(string: data.category, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray.cgColor]), for: .normal)
+        
+        let likeImage = data.isLiked ? "heart.fill" : "heart"
         likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
         likeBtn.setTitle("", for: .normal)
         

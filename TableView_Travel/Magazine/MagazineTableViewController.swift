@@ -1,14 +1,14 @@
 //
-//  TravelTableViewController.swift
+//  MagazineTableViewController.swift
 //  TableView_Travel
 //
-//  Created by 김정윤 on 5/25/24.
+//  Created by 김정윤 on 5/28/24.
 //
 
 import UIKit
 import SafariServices
 
-class TravelTableViewController: UITableViewController {
+class MagazineTableViewController: UITableViewController {
 
     var magazineList: [Magazine] = MagazineInfo().magazine
     
@@ -33,15 +33,14 @@ class TravelTableViewController: UITableViewController {
     
     // cell 구성
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineCell", for: indexPath) as? MagazineCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MagazineCell.identifier, for: indexPath) as? MagazineCell else { return UITableViewCell() }
         let magazine = magazineList[indexPath.row]
         cell.configureCell(magazineList[indexPath.row])
         return cell
     }
     
-    // 각 셀 탭했을 때 해당 링크(사파리) 띄우기 
+    // 각 셀 탭했을 때 해당 링크(사파리) 띄우기
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
         guard let url = URL(string: magazineList[indexPath.row].link) else { return }
         let safari = SFSafariViewController(url: url)
         present(safari, animated: true)

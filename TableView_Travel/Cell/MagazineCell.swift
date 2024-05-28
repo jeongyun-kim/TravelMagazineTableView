@@ -9,6 +9,8 @@ import UIKit
 import Kingfisher
 
 class MagazineCell: UITableViewCell {
+    static let identifier = "MagazineCell"
+    
     @IBOutlet var magazineDateLabel: UILabel!
     @IBOutlet var magazineSubTitleLabel: UILabel!
     @IBOutlet var magazineImageView: UIImageView!
@@ -23,9 +25,10 @@ class MagazineCell: UITableViewCell {
         magazineTitleLabel.setTitleLabel(size: 18)
         magazineTitleLabel.numberOfLines = 2
         
-        magazineSubTitleLabel.setDescLabel(size: 15, color: .gray)
+        magazineSubTitleLabel.setTitleLabel(size: 16)
+        magazineSubTitleLabel.textColor = .gray
     
-        magazineDateLabel.setDescLabel(size: 13, color: .gray)
+        magazineDateLabel.setDescLabel(size: 14, color: .gray)
         
         magazineImageView.contentMode = .scaleAspectFill
         magazineImageView.layer.cornerRadius = 12

@@ -11,26 +11,37 @@ class RestaurantTableViewController: UITableViewController {
     @IBOutlet var searchBar: UISearchBar!
     
     var restaurantList = RestaurantList().restaurantArray.map {
-        RestaurantData(image: $0.image, latitude: $0.latitude, longitude: $0.longitude, name: $0.name, address: $0.address, phoneNumber: $0.phoneNumber, category: $0.category, price: $0.price, type: $0.type, isLiked: false)
+        RestaurantData(image: $0.image, 
+                       latitude: $0.latitude,
+                       longitude: $0.longitude,
+                       name: $0.name,
+                       address: $0.address,
+                       phoneNumber: $0.phoneNumber,
+                       category: $0.category,
+                       price: $0.price,
+                       type: $0.type,
+                       isLiked: false )
     }
     var temp: [RestaurantData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
-        setupUI()
+        navigationItem.title = "식당 목록"
+        setupSearchBar()
+        setupTableView()
         temp = restaurantList
     }
-
-    func setupUI() {
+    
+    func setupSearchBar() {
+        searchBar.placeholder = "식당명, 카테고리, 주소로 검색해보세요"
+        searchBar.delegate = self
+    }
+    
+    func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.keyboardDismissMode = .onDrag
-        navigationItem.title = "식당 목록"
-        
-        searchBar.placeholder = "식당명, 카테고리, 주소로 검색해보세요"
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,13 +50,9 @@ class RestaurantTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as? RestaurantCell else { return UITableViewCell() }
-        let data = temp[indexPath.row]
-        
-        cell.configureCell(imageLink: data.image, name: data.name, phonenumber: data.phoneNumber, address: data.address, category: data.category, isLiked: data.isLiked)
-        
+        cell.configureCell(temp[indexPath.row])
         cell.likeBtn.tag = indexPath.row
         cell.likeBtn.addTarget(self, action: #selector(likeBtnTapped), for: .touchUpInside)
-        
         return cell
     }
     
@@ -61,6 +68,7 @@ class RestaurantTableViewController: UITableViewController {
    
 }
 
+// 실시간 검색
 extension RestaurantTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let keyword = searchBar.text else { return }

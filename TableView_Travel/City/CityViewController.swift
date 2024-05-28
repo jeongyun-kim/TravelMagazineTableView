@@ -21,10 +21,10 @@ class CityViewController: UIViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        let cityNib = UINib(nibName: "CityCell", bundle: nil)
-        tableView.register(cityNib, forCellReuseIdentifier: "CityCell")
-        let adNib = UINib(nibName: "AdCell", bundle: nil)
-        tableView.register(adNib, forCellReuseIdentifier: "AdCell")
+        let cityXIB = UINib(nibName: "CityCell", bundle: nil)
+        tableView.register(cityXIB, forCellReuseIdentifier: "CityCell")
+        let adXIB = UINib(nibName: "AdCell", bundle: nil)
+        tableView.register(adXIB, forCellReuseIdentifier: "AdCell")
     }
     
     // 광고 이전 셀의 아래 구분선을 지워주기 위해 광고 이전 셀의 인덱스 값 가져오기
@@ -63,17 +63,18 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
     // 광고인지 아닌지에 따른 셀 구성
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = cityList[indexPath.row]
-        let isAd = data.ad
+        let cellIdentifier = data.ad ? AdCell.identifier : CityCell.identifier
         
-        if isAd {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as? AdCell else { return UITableViewCell() }
-            cell.configureCell(title: data.title)
+        if data.ad {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AdCell else { return UITableViewCell() }
+            cell.configureCell(data)
             //cell.hideSeparator() // configureLayout()에서 해주면 우측의 라인이 남음
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as? CityCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CityCell else { return UITableViewCell() }
             // 타이틀, 설명, 별점, 저장횟수, 이미지 링크, 광고와 연결된 셀인지, 광고와 연결된 셀이면 해당 셀의 순번
-            cell.configureCell(title: data.title, desc: data.description!, grade: data.grade!, save: data.save!, image: data.travel_image!, isLike: data.like!, toHideSeparatorCells: checkToHideSeparatorIdx(), row: indexPath.row)
+            cell.configureCell(data, toHideSeparatorCells: checkToHideSeparatorIdx(), row: indexPath.row)
+            
             cell.likeBtn.tag = indexPath.row
             cell.likeBtn.addTarget(self, action: #selector(likeBtnTapped), for: .touchUpInside)
             return cell

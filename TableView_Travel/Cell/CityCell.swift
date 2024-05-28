@@ -9,6 +9,8 @@ import UIKit
 import Kingfisher
 
 class CityCell: UITableViewCell {
+    static let identifier = "CityCell"
+    
     @IBOutlet var saveLabel: UILabel!
     @IBOutlet var starImageViewCollection: [UIImageView]!
     @IBOutlet var descLabel: UILabel!
@@ -36,32 +38,43 @@ class CityCell: UITableViewCell {
         likeBtn.tintColor = .white
     }
     
-    func configureCell(title: String, desc: String, grade: Float, save: Int, image: String, isLike: Bool, toHideSeparatorCells: [Int], row: Int) {
-        titleLabel.text = title
-        descLabel.text = desc
+    // 특별히 무언가를 적용한 셀을 재사용할 때, 해당 적용사항을 지워줘~
+    // 지금같은 경우에는 광고 이전 셀은 구분선을 지워주고 있고 그 외는 다시 그려줘야 함
+    // => 셀 재사용 시 구분선 지운거 취소하고 그려줘!
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.showSeparator()
+    }
+    
+    func configureCell(_ data: Travel, toHideSeparatorCells: [Int], row: Int) {
+        titleLabel.text = data.title
+        // 옵셔널인 프로퍼티들 처리
+        if let desc = data.description, let save = data.save, let imageLink = data.travel_image, let like = data.like, let grade = data.grade {
+            descLabel.text = desc
+            saveLabel.text = " · 저장 \(save.formatted())"
+            let url = URL(string: imageLink)
+            thumbnailImageView.kf.setImage(with: url)
+            let likeImage = like ? "heart.fill" : "heart"
+            likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
+            fillStars(grade: grade)
+        }
+        // 광고 이전 셀이라면 아래 구분선 지우기
+        if toHideSeparatorCells.contains(row) {
+            self.hideSeparator()
+        }
+        
+    }
+    
+    // ✏️ 별 그려주는건 cosmos 라이브러리를 이용해볼수도 있음
+    func fillStars(grade: Double) {
         // 각 별점 반올림해서 별 색깔 칠해주기
         let limit = Int(round(grade))
-        print(grade, limit)
         for i in (0..<5) {
             if i < limit {
                 starImageViewCollection[i].tintColor = .systemYellow
             } else {
                 starImageViewCollection[i].tintColor = .systemGray5
             }
-        
-        }
-        saveLabel.text = " · 저장 \(save.formatted())"
-        let url = URL(string: image)
-        thumbnailImageView.kf.setImage(with: url)
-        
-        let likeImage = isLike ? "heart.fill" : "heart"
-        likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
-        
-        // 광고 이전 셀이라면 아래 구분선 지우기
-        if toHideSeparatorCells.contains(row) {
-            self.hideSeparator()
-        } else {
-            self.showSeparator()
         }
     }
 }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E05A62B42C01B87300B4DDF9 /* TravelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62B32C01B87300B4DDF9 /* TravelTableViewController.swift */; };
+		E010639A2C05C34900CA9E93 /* MagazineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01063992C05C34900CA9E93 /* MagazineTableViewController.swift */; };
 		E05A62B82C01B8A600B4DDF9 /* TravelMagazine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05A62B72C01B8A600B4DDF9 /* TravelMagazine.storyboard */; };
 		E05A62BA2C01BB1700B4DDF9 /* MagazineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62B92C01BB1700B4DDF9 /* MagazineCell.swift */; };
 		E05A62BD2C01C1D300B4DDF9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E05A62BC2C01C1D300B4DDF9 /* Kingfisher */; };
@@ -32,7 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E05A62B32C01B87300B4DDF9 /* TravelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTableViewController.swift; sourceTree = "<group>"; };
+		E01063992C05C34900CA9E93 /* MagazineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineTableViewController.swift; sourceTree = "<group>"; };
 		E05A62B72C01B8A600B4DDF9 /* TravelMagazine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TravelMagazine.storyboard; sourceTree = "<group>"; };
 		E05A62B92C01BB1700B4DDF9 /* MagazineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineCell.swift; sourceTree = "<group>"; };
 		E05A62BF2C02D74A00B4DDF9 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				E05A62B72C01B8A600B4DDF9 /* TravelMagazine.storyboard */,
-				E05A62B32C01B87300B4DDF9 /* TravelTableViewController.swift */,
+				E01063992C05C34900CA9E93 /* MagazineTableViewController.swift */,
 			);
 			path = Magazine;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 				E05A62E82C046D9E00B4DDF9 /* TravelModel.swift in Sources */,
 				E05A62DA2C04651A00B4DDF9 /* UILabel + Extension.swift in Sources */,
 				E0D80E5D2C00A90400EAF595 /* SceneDelegate.swift in Sources */,
-				E05A62B42C01B87300B4DDF9 /* TravelTableViewController.swift in Sources */,
+				E010639A2C05C34900CA9E93 /* MagazineTableViewController.swift in Sources */,
 				E05A62BA2C01BB1700B4DDF9 /* MagazineCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

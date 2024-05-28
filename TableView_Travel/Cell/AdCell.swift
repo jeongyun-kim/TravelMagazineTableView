@@ -8,6 +8,8 @@
 import UIKit
 
 class AdCell: UITableViewCell {
+    static let identifier = "AdCell"
+    
     @IBOutlet var adView: UIView!
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var adBtn: UIButton!
@@ -18,31 +20,31 @@ class AdCell: UITableViewCell {
     }
 
     func configureLayout() {
-        //self.hideSeparator()
         adView.backgroundColor = getRandomColor()
         adView.layer.cornerRadius = 10
         
-        adLabel.setLabelDesign(bold: true, size: 15, color: .black)
+        adLabel.setTitleLabel(size: 15)
         
         adLabel.numberOfLines = 0
         adLabel.setLineSpacing(lineSpacing: 4)
         adLabel.textAlignment = .center
         
         adBtn.setTitle("AD", for: .normal)
-        adBtn.titleLabel?.setLabelDesign(size: 12)
+        adBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         adBtn.tintColor = .black
         adBtn.backgroundColor = .white
         adBtn.layer.cornerRadius = 8
     }
     
+    // 뷰가 그려지고 레이아웃이 그려진 이후에 뷰를 레이아웃에 맞게 업데이트 해야할 때
     override func layoutSubviews() {
         super.layoutSubviews()
+        // 구분선 지우기
         self.hideSeparator()
     }
     
-    func configureCell(title: String) {
-        
-        adLabel.text = title
+    func configureCell(_ data: Travel) {
+        adLabel.text = data.title
     }
     
     func getRandomColor() -> UIColor {
