@@ -18,19 +18,7 @@ struct Restaurant {
     let category: String
     let price: Int
     let type: Int
-}
-
-struct RestaurantData {
-    let image: String
-    let latitude: Double
-    let longitude: Double
-    let name: String
-    let address: String
-    let phoneNumber: String
-    let category: String
-    let price: Int
-    let type: Int
-    var isLiked: Bool
+    var isLiked: Bool = false
 }
 
 struct RestaurantList {

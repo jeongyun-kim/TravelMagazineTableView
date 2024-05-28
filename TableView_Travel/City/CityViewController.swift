@@ -64,7 +64,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = cityList[indexPath.row]
         let cellIdentifier = data.ad ? AdCell.identifier : CityCell.identifier
-        
+       
         if data.ad {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AdCell else { return UITableViewCell() }
             cell.configureCell(data)
@@ -73,7 +73,6 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CityCell else { return UITableViewCell() }
             // 타이틀, 설명, 별점, 저장횟수, 이미지 링크, 광고와 연결된 셀인지, 광고와 연결된 셀이면 해당 셀의 순번
             cell.configureCell(data, toHideSeparatorCells: checkToHideSeparatorIdx(), row: indexPath.row)
-            
             cell.likeBtn.tag = indexPath.row
             cell.likeBtn.addTarget(self, action: #selector(likeBtnTapped), for: .touchUpInside)
             return cell

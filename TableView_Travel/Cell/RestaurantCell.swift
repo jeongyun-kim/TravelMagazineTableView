@@ -40,7 +40,7 @@ class RestaurantCell: UITableViewCell {
         likeBtn.tintColor = .systemPink
     }
     
-    func configureCell(_ data: RestaurantData) {
+    func configureCell(_ data: Restaurant) {
         let url = URL(string: data.image)
         thumbnailImageView.kf.setImage(with: url)
         

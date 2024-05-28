@@ -10,19 +10,9 @@ import UIKit
 class RestaurantTableViewController: UITableViewController {
     @IBOutlet var searchBar: UISearchBar!
     
-    var restaurantList = RestaurantList().restaurantArray.map {
-        RestaurantData(image: $0.image, 
-                       latitude: $0.latitude,
-                       longitude: $0.longitude,
-                       name: $0.name,
-                       address: $0.address,
-                       phoneNumber: $0.phoneNumber,
-                       category: $0.category,
-                       price: $0.price,
-                       type: $0.type,
-                       isLiked: false )
-    }
-    var temp: [RestaurantData] = []
+    var restaurantList = RestaurantList().restaurantArray
+    
+    var temp: [Restaurant] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
