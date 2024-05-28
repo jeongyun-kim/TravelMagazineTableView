@@ -24,11 +24,11 @@ class RestaurantCell: UITableViewCell {
     func configureLayout() {
         thumbnailImageView.setImageViewDesign()
         
-        nameLabel.setLabelDesign(bold: true, size: 15, color: .black)
+        nameLabel.setTitleLabel(size: 15)
         
-        phonenumberLabel.setLabelDesign()
+        phonenumberLabel.setDescLabel()
         
-        addressLabel.setLabelDesign()
+        addressLabel.setDescLabel(size: 13)
         addressLabel.numberOfLines = 0
     
         categoryBtn.isEnabled = false

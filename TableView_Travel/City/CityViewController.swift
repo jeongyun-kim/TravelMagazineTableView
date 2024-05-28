@@ -68,7 +68,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
         if isAd {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AdCell", for: indexPath) as? AdCell else { return UITableViewCell() }
             cell.configureCell(title: data.title)
-            cell.hideSeparator() // configureLayout()에서 해주면 우측의 라인이 남음
+            //cell.hideSeparator() // configureLayout()에서 해주면 우측의 라인이 남음
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as? CityCell else { return UITableViewCell() }

@@ -23,9 +23,9 @@ class CityCell: UITableViewCell {
 
     func configureLayout() {
         thumbnailImageView.setImageViewDesign()
-        titleLabel.setLabelDesign(bold: true, size: 15, color: .black)
-        descLabel.setLabelDesign(bold: true)
-        saveLabel.setLabelDesign(size: 12)
+        titleLabel.setTitleLabel(size: 15)
+        descLabel.setDescLabel()
+        saveLabel.setDescLabel(size: 12)
         // 별점 기본은 회색
         starImageViewCollection.forEach { imageView in
             imageView.image = UIImage(systemName: "star.fill")

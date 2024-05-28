@@ -12,6 +12,18 @@ struct Magazine {
     let photo_image: String
     let date: String
     let link: String
+    // 연산 프로퍼티
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        // 받아온 날짜의 형식
+        dateFormatter.dateFormat = "yyMMdd"
+        // String으로 받아온 날짜를 Date로 변환
+        let stringToDate = dateFormatter.date(from: date)
+        // 변환한 Date를 String으로 변경할 때의 형식
+        dateFormatter.dateFormat = "yy년 M월 d일"
+        // Date를 String으로 변환 후 return
+        return dateFormatter.string(from: stringToDate!)
+    }
 }
 
 struct MagazineInfo {

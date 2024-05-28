@@ -8,12 +8,12 @@
 import UIKit
 
 extension UILabel {
-    func setLabelDesign(bold: Bool = false, size: CGFloat = 14, color: UIColor = .lightGray) {
-        if bold {
-            self.font = UIFont.systemFont(ofSize: size, weight: .bold)
-        } else {
-            self.font = UIFont.systemFont(ofSize: size)
-        }
+    func setTitleLabel(size: CGFloat) {
+        self.font = UIFont.boldSystemFont(ofSize: size)
+    }
+    
+    func setDescLabel(size: CGFloat = 14, color: UIColor = .lightGray) {
+        self.font = UIFont.systemFont(ofSize: size)
         self.textColor = color
     }
     

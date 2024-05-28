@@ -14,12 +14,16 @@ class TravelTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "SeSAC TRAVEL"
+        setupTableView()
+    }
+    
+    func setupTableView() {
         // 테이블뷰 내 셀의 높이를 콘텐츠의 크기에 맞게 자동으로 조절
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 450
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         // 셀 간 구분선 없애기
         tableView.separatorStyle = .none
-        navigationItem.title = "SeSAC TRAVEL"
     }
     
     // 테이블뷰에 들어갈 셀의 개수
@@ -31,8 +35,7 @@ class TravelTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineCell", for: indexPath) as? MagazineCell else { return UITableViewCell() }
         let magazine = magazineList[indexPath.row]
-        cell.configure(title: magazine.title, subtitle: magazine.subtitle, date: magazine.date, imageUrl: magazine.photo_image)
-        
+        cell.configureCell(magazineList[indexPath.row])
         return cell
     }
     

@@ -1,4 +1,4 @@
-//
+///
 //  AdCell.swift
 //  TableView_Travel
 //
@@ -18,6 +18,7 @@ class AdCell: UITableViewCell {
     }
 
     func configureLayout() {
+        //self.hideSeparator()
         adView.backgroundColor = getRandomColor()
         adView.layer.cornerRadius = 10
         
@@ -34,7 +35,13 @@ class AdCell: UITableViewCell {
         adBtn.layer.cornerRadius = 8
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.hideSeparator()
+    }
+    
     func configureCell(title: String) {
+        
         adLabel.text = title
     }
     

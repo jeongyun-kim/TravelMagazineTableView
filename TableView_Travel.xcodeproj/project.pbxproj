@@ -26,8 +26,6 @@
 		E05A62F02C04838F00B4DDF9 /* UITableCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62EF2C04838F00B4DDF9 /* UITableCell + Extension.swift */; };
 		E0D80E5B2C00A90400EAF595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */; };
 		E0D80E5D2C00A90400EAF595 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */; };
-		E0D80E5F2C00A90400EAF595 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5E2C00A90400EAF595 /* ViewController.swift */; };
-		E0D80E622C00A90400EAF595 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E612C00A90400EAF595 /* Base */; };
 		E0D80E642C00A90400EAF595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E632C00A90400EAF595 /* Assets.xcassets */; };
 		E0D80E672C00A90400EAF595 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E662C00A90400EAF595 /* Base */; };
 		E0D80E6F2C00A91200EAF595 /* Magazine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E6E2C00A91200EAF595 /* Magazine.swift */; };
@@ -53,8 +51,6 @@
 		E0D80E572C00A90400EAF595 /* TableView_Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableView_Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E0D80E5E2C00A90400EAF595 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E0D80E612C00A90400EAF595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0D80E632C00A90400EAF595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0D80E662C00A90400EAF595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0D80E682C00A90400EAF595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +69,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E01063962C05C0CE00CA9E93 /* Magazine */ = {
+			isa = PBXGroup;
+			children = (
+				E05A62B72C01B8A600B4DDF9 /* TravelMagazine.storyboard */,
+				E05A62B32C01B87300B4DDF9 /* TravelTableViewController.swift */,
+			);
+			path = Magazine;
+			sourceTree = "<group>";
+		};
+		E01063972C05C0D600CA9E93 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				E05A62E12C046D0C00B4DDF9 /* CityViewController.swift */,
+				E05A62DF2C046CFF00B4DDF9 /* City.storyboard */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
+		E01063982C05C0DD00CA9E93 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				E05A62C32C02D83300B4DDF9 /* RestaurantTableViewController.swift */,
+			);
+			path = Restaurant;
+			sourceTree = "<group>";
+		};
 		E05A62BE2C02D71F00B4DDF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,27 +128,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		E05A62DD2C046C8000B4DDF9 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E05A62B32C01B87300B4DDF9 /* TravelTableViewController.swift */,
-				E05A62C32C02D83300B4DDF9 /* RestaurantTableViewController.swift */,
-				E0D80E5E2C00A90400EAF595 /* ViewController.swift */,
-				E05A62E12C046D0C00B4DDF9 /* CityViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		E05A62DE2C046C8E00B4DDF9 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				E0D80E602C00A90400EAF595 /* Main.storyboard */,
-				E05A62B72C01B8A600B4DDF9 /* TravelMagazine.storyboard */,
-				E05A62DF2C046CFF00B4DDF9 /* City.storyboard */,
-			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
 		E0D80E4E2C00A90400EAF595 = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +150,9 @@
 				E05A62DC2C046C7100B4DDF9 /* Extension */,
 				E05A62BE2C02D71F00B4DDF9 /* Model */,
 				E05A62DB2C046C6000B4DDF9 /* Cell */,
-				E05A62DD2C046C8000B4DDF9 /* ViewController */,
-				E05A62DE2C046C8E00B4DDF9 /* Storyboard */,
+				E01063962C05C0CE00CA9E93 /* Magazine */,
+				E01063982C05C0DD00CA9E93 /* Restaurant */,
+				E01063972C05C0D600CA9E93 /* City */,
 				E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */,
 				E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */,
 				E0D80E632C00A90400EAF595 /* Assets.xcassets */,
@@ -230,7 +232,6 @@
 				E05A62B82C01B8A600B4DDF9 /* TravelMagazine.storyboard in Resources */,
 				E05A62E02C046CFF00B4DDF9 /* City.storyboard in Resources */,
 				E05A62EE2C04746300B4DDF9 /* AdCell.xib in Resources */,
-				E0D80E622C00A90400EAF595 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0D80E5F2C00A90400EAF595 /* ViewController.swift in Sources */,
 				E05A62C42C02D83300B4DDF9 /* RestaurantTableViewController.swift in Sources */,
 				E05A62EA2C04707200B4DDF9 /* UIImageView + Extension.swift in Sources */,
 				E05A62E52C046D2000B4DDF9 /* CityCell.swift in Sources */,
@@ -263,14 +263,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E0D80E602C00A90400EAF595 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E0D80E612C00A90400EAF595 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E0D80E652C00A90400EAF595 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
