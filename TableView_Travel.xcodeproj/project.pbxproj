@@ -24,6 +24,9 @@
 		E05A62ED2C04746300B4DDF9 /* AdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62EB2C04746300B4DDF9 /* AdCell.swift */; };
 		E05A62EE2C04746300B4DDF9 /* AdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05A62EC2C04746300B4DDF9 /* AdCell.xib */; };
 		E05A62F02C04838F00B4DDF9 /* UITableCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A62EF2C04838F00B4DDF9 /* UITableCell + Extension.swift */; };
+		E0ABCC3A2C06215B00C23B25 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = E0ABCC392C06215B00C23B25 /* Cosmos */; };
+		E0ABCC3D2C06218500C23B25 /* City+CosmosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABCC3B2C06218500C23B25 /* City+CosmosCell.swift */; };
+		E0ABCC3E2C06218500C23B25 /* City+CosmosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABCC3C2C06218500C23B25 /* City+CosmosCell.xib */; };
 		E0D80E5B2C00A90400EAF595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */; };
 		E0D80E5D2C00A90400EAF595 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */; };
 		E0D80E642C00A90400EAF595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E632C00A90400EAF595 /* Assets.xcassets */; };
@@ -48,6 +51,8 @@
 		E05A62EB2C04746300B4DDF9 /* AdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCell.swift; sourceTree = "<group>"; };
 		E05A62EC2C04746300B4DDF9 /* AdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdCell.xib; sourceTree = "<group>"; };
 		E05A62EF2C04838F00B4DDF9 /* UITableCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableCell + Extension.swift"; sourceTree = "<group>"; };
+		E0ABCC3B2C06218500C23B25 /* City+CosmosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CosmosCell.swift"; sourceTree = "<group>"; };
+		E0ABCC3C2C06218500C23B25 /* City+CosmosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "City+CosmosCell.xib"; sourceTree = "<group>"; };
 		E0D80E572C00A90400EAF595 /* TableView_Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableView_Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0ABCC3A2C06215B00C23B25 /* Cosmos in Frameworks */,
 				E05A62BD2C01C1D300B4DDF9 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +120,8 @@
 				E05A62E42C046D2000B4DDF9 /* CityCell.xib */,
 				E05A62EB2C04746300B4DDF9 /* AdCell.swift */,
 				E05A62EC2C04746300B4DDF9 /* AdCell.xib */,
+				E0ABCC3B2C06218500C23B25 /* City+CosmosCell.swift */,
+				E0ABCC3C2C06218500C23B25 /* City+CosmosCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 			name = TableView_Travel;
 			packageProductDependencies = (
 				E05A62BC2C01C1D300B4DDF9 /* Kingfisher */,
+				E0ABCC392C06215B00C23B25 /* Cosmos */,
 			);
 			productName = TableView_Travel;
 			productReference = E0D80E572C00A90400EAF595 /* TableView_Travel.app */;
@@ -211,6 +220,7 @@
 			mainGroup = E0D80E4E2C00A90400EAF595;
 			packageReferences = (
 				E05A62BB2C01C1D300B4DDF9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E0ABCC382C06215B00C23B25 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = E0D80E582C00A90400EAF595 /* Products */;
 			projectDirPath = "";
@@ -230,6 +240,7 @@
 				E0D80E642C00A90400EAF595 /* Assets.xcassets in Resources */,
 				E0D80E672C00A90400EAF595 /* Base in Resources */,
 				E05A62B82C01B8A600B4DDF9 /* TravelMagazine.storyboard in Resources */,
+				E0ABCC3E2C06218500C23B25 /* City+CosmosCell.xib in Resources */,
 				E05A62E02C046CFF00B4DDF9 /* City.storyboard in Resources */,
 				E05A62EE2C04746300B4DDF9 /* AdCell.xib in Resources */,
 			);
@@ -250,6 +261,7 @@
 				E05A62F02C04838F00B4DDF9 /* UITableCell + Extension.swift in Sources */,
 				E05A62C02C02D74A00B4DDF9 /* Restaurant.swift in Sources */,
 				E05A62E22C046D0C00B4DDF9 /* CityViewController.swift in Sources */,
+				E0ABCC3D2C06218500C23B25 /* City+CosmosCell.swift in Sources */,
 				E05A62C62C02D84D00B4DDF9 /* RestaurantCell.swift in Sources */,
 				E05A62ED2C04746300B4DDF9 /* AdCell.swift in Sources */,
 				E05A62E82C046D9E00B4DDF9 /* TravelModel.swift in Sources */,
@@ -491,6 +503,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		E0ABCC382C06215B00C23B25 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 25.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -498,6 +518,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E05A62BB2C01C1D300B4DDF9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		E0ABCC392C06215B00C23B25 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0ABCC382C06215B00C23B25 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

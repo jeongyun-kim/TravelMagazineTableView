@@ -21,10 +21,10 @@ class CityViewController: UIViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        let cityXIB = UINib(nibName: "CityCell", bundle: nil)
-        tableView.register(cityXIB, forCellReuseIdentifier: "CityCell")
-        let adXIB = UINib(nibName: "AdCell", bundle: nil)
-        tableView.register(adXIB, forCellReuseIdentifier: "AdCell")
+        let cityXIB = UINib(nibName: CityCell.identifier, bundle: nil)
+        tableView.register(cityXIB, forCellReuseIdentifier: CityCell.identifier)
+        let adXIB = UINib(nibName: AdCell.identifier, bundle: nil)
+        tableView.register(adXIB, forCellReuseIdentifier: AdCell.identifier)
     }
     
     // 광고 이전 셀의 아래 구분선을 지워주기 위해 광고 이전 셀의 인덱스 값 가져오기

@@ -65,7 +65,7 @@ class CityCell: UITableViewCell {
         
     }
     
-    // ✏️ 별 그려주는건 cosmos 라이브러리를 이용해볼수도 있음
+    // ✏️ 별 그려주는건 cosmos 라이브러리를 이용해볼수도 있음 (완)
     func fillStars(grade: Double) {
         // 각 별점 반올림해서 별 색깔 칠해주기
         let limit = Int(round(grade))
