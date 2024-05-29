@@ -22,8 +22,8 @@ class PopularCityViewController: UIViewController {
         tableView.dataSource = self
         let popularCityXib = UINib(nibName: PopularCityTableViewCell.identifier, bundle: nil)
         tableView.register(popularCityXib, forCellReuseIdentifier: PopularCityTableViewCell.identifier)
-        tableView.rowHeight = 200
-        //tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.rowHeight = 160
+        tableView.separatorStyle = .none
     }
 }
 

@@ -25,11 +25,16 @@ class PopularCityTableViewCell: UITableViewCell {
         cityNameLabel.setTitleLabel(size: 20)
         cityNameLabel.textColor = .white
         
-        cityExplainView.backgroundColor = .black.withAlphaComponent(0.5)
         
+        cityExplainView.backgroundColor = .black.withAlphaComponent(0.6)
+        
+       
         cityImageView.contentMode = .scaleAspectFill
+        cityImageView.setMaskedCorner(cornerRadius: 16, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMaxYCorner])
         
         cityExplainLabel.setDescLabel(color: .white)
+        cityExplainView.setMaskedCorner(cornerRadius: 16, maskedCorners: [.layerMaxXMaxYCorner])
+        
     }
     
     func configureCell(_ data: City) {

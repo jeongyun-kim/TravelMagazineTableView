@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nio-Rx-WIs">
-                        <rect key="frame" x="16" y="16" width="397" height="116"/>
+                        <rect key="frame" x="16" y="8" width="397" height="132"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcV-Y0-vIf">
-                        <rect key="frame" x="363" y="24" width="42" height="21"/>
+                        <rect key="frame" x="363" y="16" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKt-od-36o">
-                        <rect key="frame" x="16" y="109.66666666666667" width="397" height="22.333333333333329"/>
+                        <rect key="frame" x="16" y="117.66666666666667" width="397" height="22.333333333333329"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtN-92-dmY">
                                 <rect key="frame" x="8" y="4.0000000000000009" width="42" height="14.333333333333336"/>
@@ -51,9 +51,9 @@
                     <constraint firstItem="BKt-od-36o" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.15" id="3nL-5i-ZTG"/>
                     <constraint firstItem="BKt-od-36o" firstAttribute="bottom" secondItem="Nio-Rx-WIs" secondAttribute="bottom" id="PtI-7a-CMW"/>
                     <constraint firstItem="BKt-od-36o" firstAttribute="leading" secondItem="Nio-Rx-WIs" secondAttribute="leading" id="f6h-FE-2kd"/>
-                    <constraint firstItem="Nio-Rx-WIs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="kLR-Lq-esb"/>
+                    <constraint firstItem="Nio-Rx-WIs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="kLR-Lq-esb"/>
                     <constraint firstItem="BcV-Y0-vIf" firstAttribute="top" secondItem="Nio-Rx-WIs" secondAttribute="top" constant="8" id="myC-cc-yHO"/>
-                    <constraint firstAttribute="bottom" secondItem="Nio-Rx-WIs" secondAttribute="bottom" constant="16" id="uJo-Zw-vg9"/>
+                    <constraint firstAttribute="bottom" secondItem="Nio-Rx-WIs" secondAttribute="bottom" constant="8" id="uJo-Zw-vg9"/>
                     <constraint firstItem="BKt-od-36o" firstAttribute="trailing" secondItem="Nio-Rx-WIs" secondAttribute="trailing" id="vA8-lC-Ivs"/>
                 </constraints>
             </tableViewCellContentView>
