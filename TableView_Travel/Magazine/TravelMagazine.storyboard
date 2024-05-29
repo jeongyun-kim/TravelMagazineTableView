@@ -296,11 +296,11 @@
             </objects>
             <point key="canvasLocation" x="1389" y="370"/>
         </scene>
-        <!--인기도시-->
+        <!--Popular Cities-->
         <scene sceneID="L4P-fV-iJy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Exm-iU-meG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="인기도시" image="star.fill" catalog="system" id="oEb-bl-5vj"/>
+                    <tabBarItem key="tabBarItem" title="Popular Cities" image="star.fill" catalog="system" id="oEb-bl-5vj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0UH-ck-z1j">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

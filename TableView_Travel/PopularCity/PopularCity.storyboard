@@ -18,14 +18,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AUh-IY-K0i">
-                                <rect key="frame" x="16" y="88" width="361" height="32"/>
+                                <rect key="frame" x="16" y="59" width="361" height="32"/>
                                 <segments>
-                                    <segment title="First"/>
+                                    <segment title=""/>
                                     <segment title="Second"/>
+                                    <segment title=""/>
                                 </segments>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xLn-rb-x3M">
-                                <rect key="frame" x="0.0" y="143" width="393" height="675"/>
+                                <rect key="frame" x="0.0" y="114" width="393" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -34,7 +35,7 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="xLn-rb-x3M" secondAttribute="bottom" id="0D0-Sk-Bbo"/>
                             <constraint firstItem="AUh-IY-K0i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="3gI-KA-4Nl"/>
-                            <constraint firstItem="AUh-IY-K0i" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="29" id="Bk4-Nf-Npw"/>
+                            <constraint firstItem="AUh-IY-K0i" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Bk4-Nf-Npw"/>
                             <constraint firstItem="xLn-rb-x3M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="H0V-kw-pjw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xLn-rb-x3M" secondAttribute="trailing" id="Kyf-6S-MlT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AUh-IY-K0i" secondAttribute="trailing" constant="16" id="eVP-FU-C9o"/>
@@ -42,6 +43,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="segmentControl" destination="AUh-IY-K0i" id="Pec-fz-Jlq"/>
                         <outlet property="tableView" destination="xLn-rb-x3M" id="g6q-9b-5UZ"/>
                     </connections>
                 </viewController>

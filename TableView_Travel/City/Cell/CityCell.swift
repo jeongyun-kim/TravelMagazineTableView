@@ -25,14 +25,19 @@ class CityCell: UITableViewCell {
 
     func configureLayout() {
         thumbnailImageView.setImageViewDesign()
+        
         titleLabel.setTitleLabel(size: 15)
+        
         descLabel.setDescLabel()
+        
         saveLabel.setDescLabel(size: 12)
+        
         // 별점 기본은 회색
         starImageViewCollection.forEach { imageView in
             imageView.image = UIImage(systemName: "star.fill")
             imageView.tintColor = .systemGray5
         }
+        
         likeBtn.setTitle("", for: .normal)
         likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
         likeBtn.tintColor = .white
@@ -51,10 +56,15 @@ class CityCell: UITableViewCell {
         // 옵셔널인 프로퍼티들 처리
         if let desc = data.description, let save = data.save, let imageLink = data.travel_image, let like = data.like, let grade = data.grade {
             descLabel.text = desc
+            
             saveLabel.text = " · 저장 \(save.formatted())"
+            
             thumbnailImageView.setKingfisherImage(imageLink)
+            
             let likeImage = like ? "heart.fill" : "heart"
+            
             likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
+            
             fillStars(grade: grade)
         }
         // 광고 이전 셀이라면 아래 구분선 지우기

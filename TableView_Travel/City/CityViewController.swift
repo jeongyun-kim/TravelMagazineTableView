@@ -44,12 +44,7 @@ class CityViewController: UIViewController {
 extension CityViewController: UITableViewDelegate, UITableViewDataSource {
     // 광고인지 아닌지에 따른 셀의 높이
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let isAd = cityList[indexPath.row].ad
-        if isAd {
-            return 95
-        } else {
-            return 140
-        }
+        return cityList[indexPath.row].ad ? 95 : 140
     }
     
     // 셀 개수
@@ -79,19 +74,19 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = cityList[indexPath.row]
         
-        if !data.ad {
-            let sb = UIStoryboard(name: "CityDetail", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: CityDetailViewController.vcIdentifier) as! CityDetailViewController
-            vc.navigationTitle = data.title
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
+        if data.ad {
             let sb = UIStoryboard(name: "CityAd", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: CityAdViewController.vcIdentifier) as! CityAdViewController
             vc.navigationTitle = data.title
             let navi = UINavigationController(rootViewController: vc)
             navi.modalPresentationStyle = .fullScreen
             present(navi, animated: true)
+        } else {
+            let sb = UIStoryboard(name: "CityDetail", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: CityDetailViewController.vcIdentifier) as! CityDetailViewController
+            vc.navigationTitle = data.title
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

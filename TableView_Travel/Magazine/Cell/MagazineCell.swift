@@ -36,8 +36,11 @@ class MagazineCell: UITableViewCell {
     
     func configureCell(_ data: Magazine) {
         magazineTitleLabel.text = data.title
+        
         magazineSubTitleLabel.text = data.subtitle
+        
         magazineImageView.setKingfisherImage(data.photo_image)
+        
         magazineDateLabel.text = data.formattedDate
     }
 }

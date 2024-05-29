@@ -27,8 +27,11 @@ class City_CosmosCell: UITableViewCell {
 
     func configureLayout() {
         cityImageView.setImageViewDesign()
+        
         cityNameLabel.setTitleLabel(size: 15)
+        
         cityDescLabel.setDescLabel()
+        
         citySaveLabel.setDescLabel(size: 12)
         
         likeBtn.setTitle("", for: .normal)
@@ -59,10 +62,14 @@ class City_CosmosCell: UITableViewCell {
         // 옵셔널인 프로퍼티들 처리
         if let desc = data.description, let save = data.save, let imageLink = data.travel_image, let like = data.like, let grade = data.grade {
             cityDescLabel.text = desc
+            
             citySaveLabel.text = " · 저장 \(save.formatted())"
+            
             cityImageView.setKingfisherImage(imageLink)
+            
             let likeImage = like ? "heart.fill" : "heart"
             likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
+            
             cityRateView.rating = grade
         }
         // 광고 이전 셀이라면 아래 구분선 지우기
