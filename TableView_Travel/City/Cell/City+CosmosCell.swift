@@ -60,8 +60,7 @@ class City_CosmosCell: UITableViewCell {
         if let desc = data.description, let save = data.save, let imageLink = data.travel_image, let like = data.like, let grade = data.grade {
             cityDescLabel.text = desc
             citySaveLabel.text = " · 저장 \(save.formatted())"
-            let url = URL(string: imageLink)
-            cityImageView.kf.setImage(with: url)
+            cityImageView.setKingfisherImage(imageLink)
             let likeImage = like ? "heart.fill" : "heart"
             likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
             cityRateView.rating = grade

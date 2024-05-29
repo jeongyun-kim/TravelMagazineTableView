@@ -52,8 +52,7 @@ class CityCell: UITableViewCell {
         if let desc = data.description, let save = data.save, let imageLink = data.travel_image, let like = data.like, let grade = data.grade {
             descLabel.text = desc
             saveLabel.text = " · 저장 \(save.formatted())"
-            let url = URL(string: imageLink)
-            thumbnailImageView.kf.setImage(with: url)
+            thumbnailImageView.setKingfisherImage(imageLink)
             let likeImage = like ? "heart.fill" : "heart"
             likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
             fillStars(grade: grade)

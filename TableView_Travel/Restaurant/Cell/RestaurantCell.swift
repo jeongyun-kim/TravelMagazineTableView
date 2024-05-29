@@ -41,8 +41,7 @@ class RestaurantCell: UITableViewCell {
     }
     
     func configureCell(_ data: Restaurant) {
-        let url = URL(string: data.image)
-        thumbnailImageView.kf.setImage(with: url)
+        thumbnailImageView.setKingfisherImage(data.image)
         
         nameLabel.text = data.name
         

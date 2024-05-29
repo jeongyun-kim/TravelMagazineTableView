@@ -103,6 +103,7 @@
                         <segue destination="a6T-s9-Zae" kind="relationship" relationship="viewControllers" id="hFf-qe-tYN"/>
                         <segue destination="CLQ-tm-rBS" kind="relationship" relationship="viewControllers" id="eAt-Gb-o5P"/>
                         <segue destination="Jrn-Mu-Ogu" kind="relationship" relationship="viewControllers" id="q4x-T1-Xhe"/>
+                        <segue destination="Exm-iU-meG" kind="relationship" relationship="viewControllers" id="p66-eS-rVn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjr-3R-S6Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -266,6 +267,16 @@
             </objects>
             <point key="canvasLocation" x="1389" y="833"/>
         </scene>
+        <!--PopularCityViewController-->
+        <scene sceneID="sZY-OS-8eg">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="PopularCityViewController" storyboardName="PopularCity" referencedIdentifier="PopularCityViewController" id="RQR-Pi-C4E" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bo2-9J-8Sm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xxm-GP-fi7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2415" y="832"/>
+        </scene>
         <!--City-->
         <scene sceneID="JWT-Cx-4KN">
             <objects>
@@ -285,11 +296,31 @@
             </objects>
             <point key="canvasLocation" x="1389" y="370"/>
         </scene>
+        <!--인기도시-->
+        <scene sceneID="L4P-fV-iJy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Exm-iU-meG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="인기도시" image="star.fill" catalog="system" id="oEb-bl-5vj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0UH-ck-z1j">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RQR-Pi-C4E" kind="relationship" relationship="rootViewController" id="SXS-6f-2er"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOH-u1-36V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2415" y="370"/>
+        </scene>
     </scenes>
     <resources>
         <image name="airplane.circle.fill" catalog="system" width="128" height="123"/>
         <image name="building.2.fill" catalog="system" width="128" height="117"/>
         <image name="fork.knife.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
