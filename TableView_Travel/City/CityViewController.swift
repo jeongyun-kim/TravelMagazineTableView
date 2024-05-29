@@ -15,7 +15,13 @@ class CityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupNavigation()
+    }
+    
+    func setupNavigation() {
+        navigationItem.backButtonTitle = ""
         navigationItem.title = "도시"
+        navigationController?.navigationBar.tintColor = .black
     }
     
     func setupTableView() {
@@ -76,6 +82,25 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
             cell.likeBtn.tag = indexPath.row
             cell.likeBtn.addTarget(self, action: #selector(likeBtnTapped), for: .touchUpInside)
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = cityList[indexPath.row]
+        
+        if !data.ad {
+            let sb = UIStoryboard(name: "CityDetail", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: CityDetailViewController.vcIdentifier) as! CityDetailViewController
+            vc.navigationTitle = data.title
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let sb = UIStoryboard(name: "CityAd", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: CityAdViewController.vcIdentifier) as! CityAdViewController
+            vc.navigationTitle = data.title
+            let navi = UINavigationController(rootViewController: vc)
+            navi.modalPresentationStyle = .fullScreen
+            present(navi, animated: true)
         }
     }
 }
