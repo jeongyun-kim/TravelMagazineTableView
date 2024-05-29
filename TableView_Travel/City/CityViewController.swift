@@ -33,23 +33,14 @@ class CityViewController: UIViewController {
         tableView.register(adXIB, forCellReuseIdentifier: AdCell.identifier)
     }
     
-    // 광고 이전 셀의 아래 구분선을 지워주기 위해 광고 이전 셀의 인덱스 값 가져오기
-    func checkToHideSeparatorIdx() -> [Int] {
-        var idxs: [Int] = []
-        for (idx, city) in cityList.enumerated() {
-            if city.ad {
-                idxs.append(idx-1)
-            }
-        }
-        return idxs
-    }
-    
     @objc func likeBtnTapped(_ sender: UIButton) {
         cityList[sender.tag].like?.toggle()
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
 }
 
+
+// MARK: 테이블뷰 필수 메서드 구현 및 셀 선택 시의 화면전환
 extension CityViewController: UITableViewDelegate, UITableViewDataSource {
     // 광고인지 아닌지에 따른 셀의 높이
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -84,7 +75,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-    
+    // 광고인지 아닌지에 따라 Present / Push
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = cityList[indexPath.row]
         
@@ -102,6 +93,20 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
             navi.modalPresentationStyle = .fullScreen
             present(navi, animated: true)
         }
+    }
+}
+
+// MARK: 광고 이전 셀 인덱스 값 가져오기
+extension CityViewController {
+    // 광고 이전 셀의 아래 구분선을 지워주기 위해 광고 이전 셀의 인덱스 값 가져오기
+    func checkToHideSeparatorIdx() -> [Int] {
+        var idxs: [Int] = []
+        for (idx, city) in cityList.enumerated() {
+            if city.ad {
+                idxs.append(idx-1)
+            }
+        }
+        return idxs
     }
 }
 
