@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import MapKit
 
-struct Restaurant {    
+struct Restaurant {
     let image: String
     let latitude: Double
     let longitude: Double
@@ -22,7 +23,7 @@ struct Restaurant {
 }
 
 struct RestaurantList {
-    let restaurantArray: [Restaurant] = [
+    static let restaurantArray: [Restaurant] = [
         Restaurant(
             image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170712_44%2F1499829806371zeBdS_JPEG%2FIMG_1167.jpg",
             latitude: 37.514746,
@@ -200,6 +201,16 @@ struct RestaurantList {
             type: 300
         )
     ]
+    
+    static let center = CLLocationCoordinate2D(latitude: 37.517440, longitude: 126.888575)
+    
+    static func getFilteredList(category: String? = nil) -> [Restaurant] {
+        var list: [Restaurant] = []
+        if let category = category {
+            list = RestaurantList.restaurantArray.filter { $0.category == category }
+        } else {
+            list = RestaurantList.restaurantArray
+        }
+        return list
+    }
 }
-
-

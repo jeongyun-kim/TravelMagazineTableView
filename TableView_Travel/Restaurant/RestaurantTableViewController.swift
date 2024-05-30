@@ -10,7 +10,7 @@ import UIKit
 class RestaurantTableViewController: UITableViewController {
     @IBOutlet var searchBar: UISearchBar!
     
-    var restaurantList = RestaurantList().restaurantArray
+    var restaurantList = RestaurantList.restaurantArray
     
     var temp: [Restaurant] = []
     

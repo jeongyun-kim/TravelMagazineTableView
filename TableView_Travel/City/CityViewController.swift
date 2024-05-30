@@ -87,13 +87,11 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
             vc.color = self.view.backgroundColor!
             let navi = UINavigationController(rootViewController: vc)
             navi.modalPresentationStyle = .fullScreen
-            tableView.reloadRows(at: [indexPath], with: .automatic)
             present(navi, animated: true)
         } else {
             let sb = UIStoryboard(name: "CityDetail", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: CityDetailViewController.vcIdentifier) as! CityDetailViewController
             vc.data = data
-            tableView.reloadRows(at: [indexPath], with: .automatic)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

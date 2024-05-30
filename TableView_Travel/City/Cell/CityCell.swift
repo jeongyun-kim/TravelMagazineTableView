@@ -24,6 +24,8 @@ class CityCell: UITableViewCell {
     }
 
     func configureLayout() {
+        selectionStyle = .none
+        
         thumbnailImageView.setImageViewDesign()
         
         titleLabel.setTitleLabel(size: 15)
