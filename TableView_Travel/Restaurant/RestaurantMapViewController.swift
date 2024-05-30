@@ -22,19 +22,23 @@ class RestaurantMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        setMapkit()
         setupMapView(allList)
     }
 }
 
 
-// MARK: Annotation 그리기/지우기
+// MARK: MapKit 관련
 extension RestaurantMapViewController {
-    // Annotation 세팅
-    func setupMapView(_ restaurantList: [Restaurant]) {
+    func setMapkit() {
         // 지도의 좌표 (E1 충전소)
         let center = RestaurantList.center
         // 지정 좌표로부터 몇 미터까지 보여줄까~
         mapView.region = MKCoordinateRegion(center: center, latitudinalMeters: 200, longitudinalMeters: 200)
+    }
+    
+    // Annotation 세팅
+    func setupMapView(_ restaurantList: [Restaurant]) {
         // 받아온 식당 리스트 돌면서 핀(Annotation) 박기
         for restaurant in restaurantList {
             let coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
