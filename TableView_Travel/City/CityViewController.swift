@@ -80,6 +80,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
             vc.navigationTitle = data.title
             let navi = UINavigationController(rootViewController: vc)
             navi.modalPresentationStyle = .fullScreen
+            tableView.reloadRows(at: [indexPath], with: .automatic)
             present(navi, animated: true)
         } else {
             let sb = UIStoryboard(name: "CityDetail", bundle: nil)
