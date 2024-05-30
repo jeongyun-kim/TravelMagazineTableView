@@ -65,7 +65,7 @@ class CityCell: UITableViewCell {
             
             likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
             
-            fillStars(grade: grade)
+            fillStars(limit: data.roundedGrade)
         }
         // 광고 이전 셀이라면 아래 구분선 지우기
         if toHideSeparatorCells.contains(row) {
@@ -75,9 +75,7 @@ class CityCell: UITableViewCell {
     }
     
     // ✏️ 별 그려주는건 cosmos 라이브러리를 이용해볼수도 있음 (완)
-    func fillStars(grade: Double) {
-        // 각 별점 반올림해서 별 색깔 칠해주기
-        let limit = Int(round(grade))
+    func fillStars(limit: Int) {
         for i in (0..<5) {
             if i < limit {
                 starImageViewCollection[i].tintColor = .systemYellow

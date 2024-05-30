@@ -14,6 +14,18 @@ struct Travel {
     let save: Int?
     var like: Bool?
     let ad: Bool
+    
+    var roundedGrade: Int {
+        let grade = grade ?? 0
+        return Int(grade.rounded())
+    }
+    
+    var desc: String {
+        if let description = description, let grade = grade {
+            return "\(title)은(는) \(description)로 유명합니다. \n 매년 수많은 사람들이 방문하고 있으며, 평점 \(grade)를 유지하고 있습니다"
+        }
+        return "\(title)"
+    }
 }
 
 struct TravelInfo {

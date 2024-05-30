@@ -18,6 +18,17 @@ class CityViewController: UIViewController {
         setupNavigation()
     }
     
+    
+    
+    @objc func likeBtnTapped(_ sender: UIButton) {
+        cityList[sender.tag].like?.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+    }
+}
+
+// MARK: 네비게이션 및 테이블뷰 세팅 
+// setupUI 라는 프로토콜(네비게이션 세팅, 테이블뷰 세팅(옵셔녈)) 생성해서 사용해보기
+extension CityViewController: setupUI {
     func setupNavigation() {
         navigationItem.backButtonTitle = ""
         navigationItem.title = "도시"
@@ -32,13 +43,7 @@ class CityViewController: UIViewController {
         let adXIB = UINib(nibName: AdCell.identifier, bundle: nil)
         tableView.register(adXIB, forCellReuseIdentifier: AdCell.identifier)
     }
-    
-    @objc func likeBtnTapped(_ sender: UIButton) {
-        cityList[sender.tag].like?.toggle()
-        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
-    }
 }
-
 
 // MARK: 테이블뷰 필수 메서드 구현 및 셀 선택 시의 화면전환
 extension CityViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,6 +75,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
+    
     // 광고인지 아닌지에 따라 Present / Push
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = cityList[indexPath.row]
@@ -77,7 +83,8 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
         if data.ad {
             let sb = UIStoryboard(name: "CityAd", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: CityAdViewController.vcIdentifier) as! CityAdViewController
-            vc.navigationTitle = data.title
+            vc.data = data
+            vc.color = self.view.backgroundColor!
             let navi = UINavigationController(rootViewController: vc)
             navi.modalPresentationStyle = .fullScreen
             tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -85,7 +92,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let sb = UIStoryboard(name: "CityDetail", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: CityDetailViewController.vcIdentifier) as! CityDetailViewController
-            vc.navigationTitle = data.title
+            vc.data = data
             tableView.reloadRows(at: [indexPath], with: .automatic)
             navigationController?.pushViewController(vc, animated: true)
         }

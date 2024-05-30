@@ -22,29 +22,12 @@ class PopularCityViewController: UIViewController {
         setupTableView()
         setupSegmentControl()
         filteredCityList = popularCityList
-        setupSearchBar()
+        setupSearchController()
     }
 }
 
-// MARK: 서치바 / 테이블뷰 / 세그먼트 구성
+// MARK: 세그먼트 구성
 extension PopularCityViewController {
-    func setupSearchBar() {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "검색어를 입력해주세요"
-        searchController.hidesNavigationBarDuringPresentation = false
-        navigationItem.searchController = searchController
-        searchController.searchBar.delegate = self
-    }
-    
-    func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        let popularCityXib = UINib(nibName: PopularCityTableViewCell.identifier, bundle: nil)
-        tableView.register(popularCityXib, forCellReuseIdentifier: PopularCityTableViewCell.identifier)
-        // 폰 스크린 높이의 0.2를 높이로
-        tableView.rowHeight = UIScreen.main.bounds.height * 0.2
-        tableView.separatorStyle = .none
-    }
     
     func setupSegmentControl() {
         let segmentTitles = ["모두", "국내", "해외"]
@@ -69,6 +52,30 @@ extension PopularCityViewController {
     }
 }
 
+//
+extension PopularCityViewController: setupUI {
+    func setupNavigation() {
+        navigationItem.title = "인기도시"
+    }
+
+    func setupSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "검색어를 입력해주세요"
+        searchController.hidesNavigationBarDuringPresentation = false
+        navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        let popularCityXib = UINib(nibName: PopularCityTableViewCell.identifier, bundle: nil)
+        tableView.register(popularCityXib, forCellReuseIdentifier: PopularCityTableViewCell.identifier)
+        // 폰 스크린 높이의 0.2를 높이로
+        tableView.rowHeight = UIScreen.main.bounds.height * 0.2
+        tableView.separatorStyle = .none
+    }
+}
 
 // MARK: 테이블뷰
 extension PopularCityViewController: UITableViewDelegate, UITableViewDataSource {

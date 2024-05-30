@@ -20,6 +20,8 @@ class RestaurantTableViewController: UITableViewController {
         setupSearchBar()
         setupTableView()
         temp = restaurantList
+        let map = UIBarButtonItem(image: UIImage(systemName: "map.fill"), style: .plain, target: self, action: #selector(mapBtnTapped))
+        navigationItem.rightBarButtonItem = map
     }
     
     func setupSearchBar() {
@@ -44,6 +46,12 @@ class RestaurantTableViewController: UITableViewController {
         cell.likeBtn.tag = indexPath.row
         cell.likeBtn.addTarget(self, action: #selector(likeBtnTapped), for: .touchUpInside)
         return cell
+    }
+    
+    @objc func mapBtnTapped(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "RestaurantMap", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: RestaurantMapViewController.vcIdentifier) as! RestaurantMapViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func likeBtnTapped(_ sender: UIButton) {

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="관광지 상세정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1W-yI-7I1">
-                                <rect key="frame" x="121.33333333333333" y="424.66666666666669" width="150.66666666666669" height="27.666666666666686"/>
+                                <rect key="frame" x="20" y="159" width="353" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,10 +27,15 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="F1W-yI-7I1" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="0gU-qc-7kt"/>
-                            <constraint firstItem="F1W-yI-7I1" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="xp8-pr-w0G"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F1W-yI-7I1" secondAttribute="trailing" constant="20" id="O8F-gv-ywS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="F1W-yI-7I1" secondAttribute="bottom" constant="100" id="ZVe-hS-rLX"/>
+                            <constraint firstItem="F1W-yI-7I1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="waK-V1-8ms"/>
+                            <constraint firstItem="F1W-yI-7I1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="yDp-vn-EYL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descLabel" destination="F1W-yI-7I1" id="FfP-sl-Z38"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

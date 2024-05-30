@@ -8,13 +8,25 @@
 import UIKit
 
 class CityDetailViewController: UIViewController {
+    @IBOutlet var descLabel: UILabel!
+    
     static let vcIdentifier = "CityDetailViewController"
     
-    lazy var navigationTitle: String = ""
+    var data: Travel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = navigationTitle
+       
+        descLabel.text = data?.desc
+        // 구조체로 정의한 폰트 스타일 불러오기 : 폰트크기 14
+        descLabel.font = fontStyle.descFont
+        descLabel.textColor = .lightGray
+        descLabel.numberOfLines = 0
     }
+    
+    func setupNavigation() {
+        navigationItem.title = data?.title
+    }
+    
     
 }
