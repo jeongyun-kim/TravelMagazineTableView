@@ -8,8 +8,6 @@
 import UIKit
 
 class CityAdViewController: UIViewController {
-    static let vcIdentifier = "CityAdViewController"
-    
     var data: Travel?
     lazy var color: UIColor = .clear
     

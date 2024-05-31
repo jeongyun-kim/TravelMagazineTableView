@@ -10,8 +10,6 @@ import UIKit
 class CityDetailViewController: UIViewController {
     @IBOutlet var descLabel: UILabel!
     
-    static let vcIdentifier = "CityDetailViewController"
-    
     var data: Travel?
     
     override func viewDidLoad() {

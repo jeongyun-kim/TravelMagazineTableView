@@ -9,8 +9,6 @@ import UIKit
 import MapKit
 
 class RestaurantMapViewController: UIViewController {
-    static let vcIdentifier = "RestaurantMapViewController"
-    
     @IBOutlet var mapView: MKMapView!
     
     lazy var koreanList = RestaurantList.getFilteredList(category: "한식")

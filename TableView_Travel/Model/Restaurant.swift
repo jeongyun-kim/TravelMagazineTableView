@@ -204,6 +204,7 @@ struct RestaurantList {
     
     static let center = CLLocationCoordinate2D(latitude: 37.517440, longitude: 126.888575)
     
+    
     static func getFilteredList(category: String? = nil) -> [Restaurant] {
         var list: [Restaurant] = []
         if let category = category {

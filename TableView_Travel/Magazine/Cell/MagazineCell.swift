@@ -9,8 +9,6 @@ import UIKit
 import Kingfisher
 
 class MagazineCell: UITableViewCell {
-    static let identifier = "MagazineCell"
-    
     @IBOutlet var magazineDateLabel: UILabel!
     @IBOutlet var magazineSubTitleLabel: UILabel!
     @IBOutlet var magazineImageView: UIImageView!

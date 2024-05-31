@@ -11,7 +11,6 @@ import Kingfisher
 
 // cosmos 이용해서 별점 넣어보기 (완) 
 class City_CosmosCell: UITableViewCell {
-    
     @IBOutlet var likeBtn: UIButton!
     @IBOutlet var citySaveLabel: UILabel!
     @IBOutlet var cityRateView: CosmosView!

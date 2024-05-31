@@ -82,7 +82,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
         
         if data.ad {
             let sb = UIStoryboard(name: "CityAd", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: CityAdViewController.vcIdentifier) as! CityAdViewController
+            let vc = sb.instantiateViewController(withIdentifier: CityAdViewController.identifier) as! CityAdViewController
             vc.data = data
             vc.color = self.view.backgroundColor!
             let navi = UINavigationController(rootViewController: vc)
@@ -90,7 +90,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
             present(navi, animated: true)
         } else {
             let sb = UIStoryboard(name: "CityDetail", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: CityDetailViewController.vcIdentifier) as! CityDetailViewController
+            let vc = sb.instantiateViewController(withIdentifier: CityDetailViewController.identifier) as! CityDetailViewController
             vc.data = data
             navigationController?.pushViewController(vc, animated: true)
         }

@@ -9,8 +9,6 @@ import UIKit
 import Kingfisher
 
 class CityCell: UITableViewCell {
-    static let identifier = "CityCell"
-    
     @IBOutlet var saveLabel: UILabel!
     @IBOutlet var starImageViewCollection: [UIImageView]!
     @IBOutlet var descLabel: UILabel!
