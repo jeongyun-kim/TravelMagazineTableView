@@ -20,6 +20,8 @@ class AdCell: UITableViewCell {
     }
 
     func configureLayout() {
+        self.selectionStyle = .none
+        
         adView.backgroundColor = getRandomColor()
         adView.layer.cornerRadius = 10
         
