@@ -99,7 +99,7 @@ extension RestaurantViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = filterList[indexPath.row]
-        result = RestaurantList.filterData(category)
+        result = RestaurantList.filteredData(category)
     }
 }
 
@@ -111,7 +111,7 @@ extension RestaurantViewController: UISearchBarDelegate {
         guard let keyword = searchBar.text else { return }
         if keyword.isEmpty { // 검색어가 없다면 현재 선택중인 카테고리의 식당들 보여주기 
             let category = filterList[row]
-            result = RestaurantList.filterData(category)
+            result = RestaurantList.filteredData(category)
         } else { // 검색 결과는 이름, 카테고리, 주소로 확인
             result = result.filter {
                 $0.nameAndCategory.contains(keyword) || $0.address.contains(keyword)

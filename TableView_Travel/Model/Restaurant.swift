@@ -218,7 +218,7 @@ extension RestaurantList {
     
     static let center = CLLocationCoordinate2D(latitude: 37.517440, longitude: 126.888575)
     
-    var filteredDataDict: [String: [Restaurant]] {
+    static var filteredDataDict: [String: [Restaurant]] {
         var result: [String: [Restaurant]] = ["전체보기": RestaurantList.restaurantArray]
         for category in RestaurantList.categoryList {
             if category != "전체보기" {
@@ -228,7 +228,7 @@ extension RestaurantList {
         return result
     }
     
-    static func filterData(_ category: String) -> [Restaurant] {
+    static func filteredData(_ category: String) -> [Restaurant] {
         if category == "전체보기" {
             return restaurantArray
         } else {
