@@ -11,17 +11,13 @@ import MapKit
 class RestaurantMapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
-    lazy var koreanList = RestaurantList.getFilteredList(category: "한식")
-    lazy var japaneseList = RestaurantList.getFilteredList(category: "일식")
-    lazy var chineseList = RestaurantList.getFilteredList(category: "중식")
-    lazy var westernList = RestaurantList.getFilteredList(category: "양식")
-    let allList = RestaurantList.getFilteredList()
+    let filteredData = RestaurantList.filteredDataDict // 카테고리별로 분류된 데이터 [카테고리: [식당목록]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         setMapkit()
-        setupMapView(allList)
+        setupMapView(filteredData["전체보기"]!)
     }
 }
 
@@ -54,8 +50,7 @@ extension RestaurantMapViewController {
     }
 }
 
-
-// MARK: 네비게이션 세팅
+// MARK: Navigation
 // 연습삼아 만든 setupUI 프로토콜 채택
 extension RestaurantMapViewController: setupUI {
     func setupNavigation() {
@@ -65,14 +60,15 @@ extension RestaurantMapViewController: setupUI {
     }
 }
 
-
-// MARK: 액션 관련..?
+// MARK: Action
 extension RestaurantMapViewController {
     // alertAction 생성
-    func configureUIAlertAction(_ title: String, list: [Restaurant]) -> UIAlertAction{
+    func configureUIAlertAction(_ title: String) -> UIAlertAction {
         let alertAction = UIAlertAction(title: title, style: .default) { _ in
+            // key값(title)으로 데이터 불러오기
+            guard let result = self.filteredData[title] else { return }
             self.removeAnnotations()
-            self.setupMapView(list)
+            self.setupMapView(result)
         }
         return alertAction
     }
@@ -82,11 +78,11 @@ extension RestaurantMapViewController {
         // actionSheet 생성
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         // 등록할 액션 생성
-        let all = configureUIAlertAction("전체보기", list: allList)
-        let korean = configureUIAlertAction("한식만 보기", list: koreanList)
-        let japanese = configureUIAlertAction("일식만 보기", list: japaneseList)
-        let chinese = configureUIAlertAction("중식만 보기", list: chineseList)
-        let western = configureUIAlertAction("양식만 보기", list: westernList)
+        let all = configureUIAlertAction("전체보기")
+        let korean = configureUIAlertAction("한식")
+        let japanese = configureUIAlertAction("일식")
+        let chinese = configureUIAlertAction("중식")
+        let western = configureUIAlertAction("양식")
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         // 액션 등록
         [all, korean, japanese, chinese, western, cancel].forEach { action in

@@ -10,15 +10,14 @@ import UIKit
 class RestaurantViewController: UIViewController {
     @IBOutlet var filterTableView: UITableView!
     @IBOutlet var restaurantTableView: UITableView!
-    
-    let list = RestaurantList.restaurantArray // 원본 데이터
-    let filteredList = RestaurantList.filteredData // 카테고리 별로 필터링 된 데이터
+
+    let filteredDataList = RestaurantList.filteredDataDict // 카테고리별로 분류 된 데이터 [카테고리: [[식당 목록]]
     var result = RestaurantList.restaurantArray { // 테이블뷰 그릴 때 쓰일 데이터
         didSet {
             restaurantTableView.reloadData()
         }
     }
-    // 필터링 목록
+    // 필터링 목록 (= 전체보기, 한식, 양식 등)
     var filterList = RestaurantList.categoryList
     
     override func viewDidLoad() {
@@ -36,9 +35,21 @@ class RestaurantViewController: UIViewController {
 }
 
 
+// MARK: Action
+extension RestaurantViewController {
+    @objc func mapBtnTapped(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "RestaurantMap", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: RestaurantMapViewController.identifier) as! RestaurantMapViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: UI
 extension RestaurantViewController: setupUI {
     func setupNavigation() {
         navigationItem.title = "식당 목록"
+        let map = UIBarButtonItem(image: UIImage(systemName: "map.fill"), style: .plain, target: self, action: #selector(mapBtnTapped))
+        navigationItem.rightBarButtonItem = map
     }
     
     func setupTableView(_ tableView: UITableView) {
@@ -58,6 +69,7 @@ extension RestaurantViewController: setupUI {
     }
 }
 
+// MARK: TableViewExtension
 extension RestaurantViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableView == filterTableView ? filterList.count : result.count
@@ -78,11 +90,12 @@ extension RestaurantViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == filterTableView {
             let key = filterList[indexPath.row]
-            result = filteredList[key]!
+            result = filteredDataList[key]!
         }
     }
 }
 
+// MARK: SearchBarExtension
 extension RestaurantViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // 현재 선택중인 카테고리의 row 값
@@ -90,7 +103,7 @@ extension RestaurantViewController: UISearchBarDelegate {
         guard let keyword = searchBar.text else { return }
         if keyword.isEmpty { // 검색어가 없다면 현재 선택중인 카테고리의 식당들 보여주기 
             let key = filterList[row]
-            result = filteredList[key]!
+            result = filteredDataList[key]!
         } else { // 검색 결과는 이름, 카테고리, 주소로 확인 
             result = result.filter {
                 $0.nameAndCategory.contains(keyword) || $0.address.contains(keyword)
