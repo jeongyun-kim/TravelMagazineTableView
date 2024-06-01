@@ -31,9 +31,6 @@ class RestaurantTableViewCell: UITableViewCell {
         addressLabel.setDescLabel(size: 13)
         addressLabel.numberOfLines = 0
         
-        likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
-        likeBtn.tintColor = .white
-        
         priceLabel.textColor = .lightGray
         priceLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
     }
@@ -46,10 +43,6 @@ class RestaurantTableViewCell: UITableViewCell {
         phonenumberLabel.text = data.phoneNumber
         
         addressLabel.text = data.address
-        
-        let likeImage = data.isLiked ? "heart.fill" : "heart"
-        likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
-        likeBtn.setTitle("", for: .normal)
         
         priceLabel.text = "\(data.price.formatted())원~"
     }

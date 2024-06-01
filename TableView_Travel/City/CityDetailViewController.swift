@@ -14,7 +14,13 @@ class CityDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        setupUI()
+    }
+}
+
+// MARK: UI 
+extension CityDetailViewController {
+    func setupUI() {
         descLabel.text = data?.desc
         // 구조체로 정의한 폰트 스타일 불러오기 : 폰트크기 14
         descLabel.font = fontStyle.descFont
@@ -25,6 +31,4 @@ class CityDetailViewController: UIViewController {
     func setupNavigation() {
         navigationItem.title = data?.title
     }
-    
-    
 }

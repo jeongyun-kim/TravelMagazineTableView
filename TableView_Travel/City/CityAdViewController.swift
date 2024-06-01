@@ -9,24 +9,26 @@ import UIKit
 
 class CityAdViewController: UIViewController {
     var data: Travel?
-    lazy var color: UIColor = .clear
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
-        view.backgroundColor = color
-    }
-
-    
-    @objc func dismissModal(_ sender: UIButton) {
-        dismiss(animated: true)
     }
 }
 
+
+// MARK: UI
 extension CityAdViewController: setupUI {
     func setupNavigation() {
         navigationItem.title = data?.title
         navigationController?.navigationBar.tintColor = .black
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissModal))
+    }
+}
+
+// MARK: Action
+extension CityAdViewController {
+    @objc func dismissModal(_ sender: UIButton) {
+        dismiss(animated: true)
     }
 }

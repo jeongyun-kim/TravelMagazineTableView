@@ -18,15 +18,20 @@ class CityViewController: UIViewController {
         setupNavigation()
     }
     
-    
-    
-    @objc func likeBtnTapped(_ sender: UIButton) {
-        cityList[sender.tag].like?.toggle()
-        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+    // 광고 이전 셀의 아래 구분선을 지워주기 위해 광고 이전 셀의 인덱스 값 가져오기
+    func checkToHideSeparatorIdx() -> [Int] {
+        var idxs: [Int] = []
+        for (idx, city) in cityList.enumerated() {
+            if city.ad {
+                idxs.append(idx-1)
+            }
+        }
+        return idxs
     }
 }
 
-// MARK: 네비게이션 및 테이블뷰 세팅 
+
+// MARK: 네비게이션 및 테이블뷰 세팅
 // setupUI 라는 프로토콜(네비게이션 세팅, 테이블뷰 세팅(옵셔녈)) 생성해서 사용해보기
 extension CityViewController: setupUI {
     func setupNavigation() {
@@ -42,6 +47,14 @@ extension CityViewController: setupUI {
         tableView.register(cityXIB, forCellReuseIdentifier: CityCell.identifier)
         let adXIB = UINib(nibName: AdCell.identifier, bundle: nil)
         tableView.register(adXIB, forCellReuseIdentifier: AdCell.identifier)
+    }
+}
+
+// MARK: Action
+extension CityViewController {
+    @objc func likeBtnTapped(_ sender: UIButton) {
+        cityList[sender.tag].like?.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
 }
 
@@ -84,7 +97,6 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
             let sb = UIStoryboard(name: "CityAd", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: CityAdViewController.identifier) as! CityAdViewController
             vc.data = data
-            vc.color = self.view.backgroundColor!
             let navi = UINavigationController(rootViewController: vc)
             navi.modalPresentationStyle = .fullScreen
             present(navi, animated: true)
@@ -96,19 +108,3 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-
-// MARK: 광고 이전 셀 인덱스 값 가져오기
-extension CityViewController {
-    // 광고 이전 셀의 아래 구분선을 지워주기 위해 광고 이전 셀의 인덱스 값 가져오기
-    func checkToHideSeparatorIdx() -> [Int] {
-        var idxs: [Int] = []
-        for (idx, city) in cityList.enumerated() {
-            if city.ad {
-                idxs.append(idx-1)
-            }
-        }
-        return idxs
-    }
-}
-
-

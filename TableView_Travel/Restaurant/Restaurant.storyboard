@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-gC-jHX">
-                                <rect key="frame" x="0.0" y="59" width="98.333333333333329" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="66.666666666666671" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YQA-BT-BA7">
-                                <rect key="frame" x="98.333333333333343" y="59" width="294.66666666666663" height="759"/>
+                                <rect key="frame" x="66.666666666666657" y="59" width="326.33333333333337" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -36,7 +36,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YQA-BT-BA7" secondAttribute="bottom" id="de1-db-UlQ"/>
                             <constraint firstItem="YQA-BT-BA7" firstAttribute="leading" secondItem="jpC-gC-jHX" secondAttribute="trailing" id="eeX-bK-pU1"/>
                             <constraint firstItem="jpC-gC-jHX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="pkO-NK-lKt"/>
-                            <constraint firstItem="jpC-gC-jHX" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.25" id="qaF-8Q-riW"/>
+                            <constraint firstItem="jpC-gC-jHX" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.17" id="qaF-8Q-riW"/>
                         </constraints>
                     </view>
                     <connections>

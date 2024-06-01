@@ -11,6 +11,7 @@ class RestaurantViewController: UIViewController {
     @IBOutlet var filterTableView: UITableView!
     @IBOutlet var restaurantTableView: UITableView!
 
+    var list = RestaurantList.restaurantArray
     let filteredDataList = RestaurantList.filteredDataDict // 카테고리별로 분류 된 데이터 [카테고리: [[식당 목록]]
     var result = RestaurantList.restaurantArray { // 테이블뷰 그릴 때 쓰일 데이터
         didSet {
@@ -31,16 +32,6 @@ class RestaurantViewController: UIViewController {
         super.viewWillAppear(animated)
         // 페이지 올 때마다 '전체보기' 선택 중으로
         filterTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
-    }
-}
-
-
-// MARK: Action
-extension RestaurantViewController {
-    @objc func mapBtnTapped(_ sender: UIButton) {
-        let sb = UIStoryboard(name: "RestaurantMap", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: RestaurantMapViewController.identifier) as! RestaurantMapViewController
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -66,6 +57,15 @@ extension RestaurantViewController: setupUI {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
+    }
+}
+
+// MARK: Action
+extension RestaurantViewController {
+    @objc func mapBtnTapped(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "RestaurantMap", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: RestaurantMapViewController.identifier) as! RestaurantMapViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -111,3 +111,5 @@ extension RestaurantViewController: UISearchBarDelegate {
         }
     }
 }
+
+
