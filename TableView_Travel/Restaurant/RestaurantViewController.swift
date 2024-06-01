@@ -57,6 +57,7 @@ extension RestaurantViewController: setupUI {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
+        searchController.searchBar.placeholder = "식당명, 카테고리, 주소를 검색해보세요"
     }
 }
 
