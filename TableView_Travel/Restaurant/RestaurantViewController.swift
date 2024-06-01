@@ -23,6 +23,7 @@ class RestaurantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        setupSearchController()
         [filterTableView, restaurantTableView].forEach { setupTableView($0) }
         filterList.append(contentsOf: RestaurantList().categoryList)
     }
@@ -43,7 +44,11 @@ extension RestaurantViewController: setupUI {
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
    
-
+    func setupSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+    }
 }
 
 extension RestaurantViewController: UITableViewDelegate, UITableViewDataSource {
@@ -79,3 +84,11 @@ extension RestaurantViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension RestaurantViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let keyword = searchBar.text else { return }
+        filteredDataList = filteredDataList.filter {
+            $0.nameAndCategory.contains(keyword) || $0.address.contains(keyword)
+        }
+    }
+}
