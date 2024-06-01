@@ -17,14 +17,17 @@ class PopularCityViewController: UIViewController {
     
     lazy var searchKeyword: String = "" 
     
-    var filteredCityList: [City] = []
+    var filteredCityList = CityInfo.city {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         setupTableView()
         setupSegmentControl()
-        filteredCityList = popularCityList
         setupSearchController()
     }
 }
@@ -122,7 +125,7 @@ extension PopularCityViewController: UISearchBarDelegate {
         } else { // 검색어가 없다면 저장해둔 검색어 리셋
             searchKeyword = ""
         }
-        tableView.reloadData()
+        //tableView.reloadData()
     }
     
     // 실시간 검색
