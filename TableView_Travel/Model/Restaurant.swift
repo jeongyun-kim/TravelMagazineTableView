@@ -210,11 +210,23 @@ struct RestaurantList {
 }
 
 extension RestaurantList {
-    var categoryList: [String] {
-        return Array(Set(RestaurantList.restaurantArray.map { $0.category }))
+    static var categoryList: [String] {
+        var list: [String] = ["전체보기"]
+        list.append(contentsOf: Array(Set(RestaurantList.restaurantArray.map { $0.category })))
+        return list
     }
 
     static let center = CLLocationCoordinate2D(latitude: 37.517440, longitude: 126.888575)
+
+    static var filteredData: [String: [Restaurant]] {
+        var result: [String: [Restaurant]] = ["전체보기": restaurantArray]
+        for category in categoryList {
+            if category != "전체보기" {
+                result[category] = restaurantArray.filter { $0.category == category }
+            }
+        }
+        return result
+    }
 
     static func getFilteredList(category: String? = nil) -> [Restaurant] {
         var list: [Restaurant] = []

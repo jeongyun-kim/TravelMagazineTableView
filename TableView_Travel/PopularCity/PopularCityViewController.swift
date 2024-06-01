@@ -118,14 +118,13 @@ extension PopularCityViewController: UISearchBarDelegate {
                 $0.cityName.lowercased().contains(keyword.lowercased())
                 || $0.city_explain.contains(keyword)
             }
-            if !result.isEmpty { // 검색어가 존재한다면 원래 있던 검색어에 대치해주기
+            if !result.isEmpty { // 검색결과가 존재한다면 원래 있던 검색어에 대치해주기
                 searchKeyword = keyword.lowercased()
             }
             filteredCityList = result
         } else { // 검색어가 없다면 저장해둔 검색어 리셋
             searchKeyword = ""
         }
-        //tableView.reloadData()
     }
     
     // 실시간 검색
