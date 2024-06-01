@@ -236,7 +236,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbb-k6-r7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="407" y="1139"/>
+            <point key="canvasLocation" x="407" y="1811"/>
         </scene>
         <!--Restaurant-->
         <scene sceneID="Rjh-E4-4Co">
@@ -250,12 +250,22 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="zlX-xG-aGU" kind="relationship" relationship="rootViewController" id="opZ-cz-xFf"/>
+                        <segue destination="qXz-Cw-Agv" kind="relationship" relationship="rootViewController" id="4FB-dA-w8H"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAk-rJ-ICr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="407" y="370"/>
+        </scene>
+        <!--RestaurantViewController-->
+        <scene sceneID="QkN-Ll-CVq">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="RestaurantViewController" storyboardName="Restaurant" referencedIdentifier="RestaurantViewController" id="qXz-Cw-Agv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YdH-SZ-MNh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sxt-xc-DSa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="407" y="832"/>
         </scene>
         <!--CityViewController-->
         <scene sceneID="V3y-mG-WHY">

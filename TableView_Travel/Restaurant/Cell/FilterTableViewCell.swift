@@ -8,16 +8,20 @@
 import UIKit
 
 class FilterTableViewCell: UITableViewCell {
-
+    @IBOutlet var filterLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        configureLayout()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureLayout() {
+        filterLabel.setTitleLabel(size: 13)
+        filterLabel.textAlignment = .center
+    }
+    
+    func configureCell(_ data: String) {
+        filterLabel.text = data
     }
     
 }

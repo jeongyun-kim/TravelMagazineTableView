@@ -22,6 +22,12 @@ struct Restaurant {
     var isLiked: Bool = false
 }
 
+extension Restaurant {
+    var nameAndCategory: String {
+        return "\(name) | \(category)"
+    }
+}
+
 struct RestaurantList {
     static let restaurantArray: [Restaurant] = [
         Restaurant(
@@ -201,10 +207,15 @@ struct RestaurantList {
             type: 300
         )
     ]
-    
+}
+
+extension RestaurantList {
+    var categoryList: [String] {
+        return Array(Set(RestaurantList.restaurantArray.map { $0.category }))
+    }
+
     static let center = CLLocationCoordinate2D(latitude: 37.517440, longitude: 126.888575)
-    
-    
+
     static func getFilteredList(category: String? = nil) -> [Restaurant] {
         var list: [Restaurant] = []
         if let category = category {

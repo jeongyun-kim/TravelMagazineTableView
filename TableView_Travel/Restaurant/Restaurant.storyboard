@@ -1,25 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Restaurant View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RestaurantViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="RestaurantViewController" customModule="TableView_Travel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-gC-jHX">
+                                <rect key="frame" x="0.0" y="59" width="98.333333333333329" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YQA-BT-BA7">
+                                <rect key="frame" x="98.333333333333343" y="59" width="294.66666666666663" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="jpC-gC-jHX" secondAttribute="bottom" id="FB3-Ew-ZvA"/>
+                            <constraint firstItem="YQA-BT-BA7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Gh1-9Z-l8p"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YQA-BT-BA7" secondAttribute="trailing" id="bm5-hb-QG9"/>
+                            <constraint firstItem="jpC-gC-jHX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="crc-En-pMF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YQA-BT-BA7" secondAttribute="bottom" id="de1-db-UlQ"/>
+                            <constraint firstItem="YQA-BT-BA7" firstAttribute="leading" secondItem="jpC-gC-jHX" secondAttribute="trailing" id="eeX-bK-pU1"/>
+                            <constraint firstItem="jpC-gC-jHX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="pkO-NK-lKt"/>
+                            <constraint firstItem="jpC-gC-jHX" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.25" id="qaF-8Q-riW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="filterTableView" destination="jpC-gC-jHX" id="qZO-t2-tod"/>
+                        <outlet property="restaurantTableView" destination="YQA-BT-BA7" id="bTI-a0-2VA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="132" y="-34"/>
         </scene>
     </scenes>
     <resources>

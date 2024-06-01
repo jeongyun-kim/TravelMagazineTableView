@@ -8,16 +8,49 @@
 import UIKit
 
 class RestaurantTableViewCell: UITableViewCell {
-
+    @IBOutlet var likeBtn: UIButton!
+    @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var phonenumberLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var restaurantImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        configureLayout()
     }
     
+    func configureLayout() {
+        restaurantImageView.setImageViewDesign()
+        
+        nameLabel.setTitleLabel(size: 15)
+        nameLabel.numberOfLines = 0
+        
+        phonenumberLabel.setDescLabel()
+        
+        addressLabel.setDescLabel(size: 13)
+        addressLabel.numberOfLines = 0
+        
+        likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+        likeBtn.tintColor = .white
+        
+        priceLabel.textColor = .lightGray
+        priceLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+    }
+    
+    func configureCell(_ data: Restaurant) {
+       restaurantImageView.setKingfisherImage(data.image)
+        
+        nameLabel.text = data.nameAndCategory
+        
+        phonenumberLabel.text = data.phoneNumber
+        
+        addressLabel.text = data.address
+        
+        let likeImage = data.isLiked ? "heart.fill" : "heart"
+        likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
+        likeBtn.setTitle("", for: .normal)
+        
+        priceLabel.text = "\(data.price.formatted())원~"
+    }
 }
