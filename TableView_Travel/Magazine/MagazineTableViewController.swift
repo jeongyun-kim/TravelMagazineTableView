@@ -25,7 +25,11 @@ class MagazineTableViewController: UITableViewController {
         // 셀 간 구분선 없애기
         tableView.separatorStyle = .none
     }
-    
+}
+
+
+// MARK: TableView
+extension MagazineTableViewController {
     // 테이블뷰에 들어갈 셀의 개수
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return magazineList.count

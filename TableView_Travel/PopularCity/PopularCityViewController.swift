@@ -37,22 +37,31 @@ extension PopularCityViewController {
     func setupSegmentControl() {
         let segmentTitles = ["모두", "국내", "해외"]
         let attribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .bold)]
+        // 선택된 세그먼트에는 폰트 굵게
+        segmentControl.setTitleTextAttributes(attribute, for: .selected)
         let segmentActions = [popularCityList, korean, foreign]
         
-        // 왜 액션이랑 타이틀 둘의 순서가 바뀌면 타이틀이 안 나오지?ㅅ?
         for i in (0..<segmentTitles.count) {
-            segmentControl.setAction(UIAction(handler: { _ in
-                // 필터링 리스트에 필터링 반영
-                self.filteredCityList = segmentActions[i]
-                // 선택한 세그먼트는 폰트 굵게 변경
-                self.segmentControl.setTitleTextAttributes(attribute, for: .selected)
-                // 테이블뷰 다시 불러오기
-                self.tableView.reloadData()
-            }), forSegmentAt: i)
+            // 액션 구현 방법 1) setAction
+//            segmentControl.setAction(UIAction(handler: { _ in
+//                // 필터링 리스트에 필터링 반영
+//                self.filteredCityList = segmentActions[i]
+//            }), forSegmentAt: i)
             // 각 세그먼트에 제목 넣어주기
             segmentControl.setTitle(segmentTitles[i], forSegmentAt: i)
-            // 디폴트로 선택되어있는 곳에는 폰트 굵게
-            segmentControl.setTitleTextAttributes(attribute, for: .selected)
+            
+        }
+        // 액션 구현 방법 2) addTarget -> selectedSegmentIndex
+        segmentControl.addTarget(self, action: #selector(segmentTapped), for: .valueChanged)
+    }
+    
+    @objc func segmentTapped() {
+        let selectedSegmentIdx = segmentControl.selectedSegmentIndex
+        switch selectedSegmentIdx {
+        case 0: filteredCityList = popularCityList
+        case 1: filteredCityList = korean
+        case 2: filteredCityList = foreign
+        default: filteredCityList = popularCityList
         }
     }
 }
