@@ -11,7 +11,7 @@ import MapKit
 class RestaurantMapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
-    let filteredData = RestaurantList.filteredDataDict // 카테고리별로 분류된 데이터 [카테고리: [식당목록]]
+    let filteredData = RestaurantList().filteredDataDict // 카테고리별로 분류된 데이터 [카테고리: [식당목록]]
     
     override func viewDidLoad() {
         super.viewDidLoad()

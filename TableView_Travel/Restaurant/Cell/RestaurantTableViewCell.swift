@@ -33,6 +33,8 @@ class RestaurantTableViewCell: UITableViewCell {
         
         priceLabel.textColor = .lightGray
         priceLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        
+        likeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
     }
     
     func configureCell(_ data: Restaurant) {
@@ -45,5 +47,9 @@ class RestaurantTableViewCell: UITableViewCell {
         addressLabel.text = data.address
         
         priceLabel.text = "\(data.price.formatted())원~"
+        
+        let likeImage = data.isLiked ? "heart.fill" : "heart"
+        likeBtn.setImage(UIImage(systemName: likeImage), for: .normal)
+        likeBtn.tintColor = .white
     }
 }

@@ -218,13 +218,21 @@ extension RestaurantList {
     
     static let center = CLLocationCoordinate2D(latitude: 37.517440, longitude: 126.888575)
     
-    static var filteredDataDict: [String: [Restaurant]] {
-        var result: [String: [Restaurant]] = ["전체보기": restaurantArray]
-        for category in categoryList {
+    var filteredDataDict: [String: [Restaurant]] {
+        var result: [String: [Restaurant]] = ["전체보기": RestaurantList.restaurantArray]
+        for category in RestaurantList.categoryList {
             if category != "전체보기" {
-                result[category] = restaurantArray.filter { $0.category == category }
+                result[category] = RestaurantList.restaurantArray.filter { $0.category == category }
             }
         }
         return result
+    }
+    
+    static func filterData(_ category: String) -> [Restaurant] {
+        if category == "전체보기" {
+            return restaurantArray
+        } else {
+            return restaurantArray.filter { $0.category == category }
+        }
     }
 }
