@@ -20,7 +20,6 @@ class AdCell: UITableViewCell {
     func configureLayout() {
         self.selectionStyle = .none
         
-        adView.backgroundColor = getRandomColor()
         adView.layer.cornerRadius = 10
         
         adLabel.setTitleLabel(size: 15)
@@ -45,13 +44,6 @@ class AdCell: UITableViewCell {
     
     func configureCell(_ data: Travel) {
         adLabel.text = data.title
-    }
-    
-    func getRandomColor() -> UIColor {
-        let red = CGFloat.random(in: 0...1)
-        let green = CGFloat.random(in: 0...1)
-        let blue = CGFloat.random(in: 0...1)
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0).withAlphaComponent(0.5)
-        return color
+        adView.backgroundColor = data.bgColor
     }
 }

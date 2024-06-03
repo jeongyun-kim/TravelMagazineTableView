@@ -4,7 +4,7 @@
 //  Created by Den on 2024/05/11.
 //
 
-import Foundation
+import UIKit
 
 struct Travel {
     let title: String
@@ -25,6 +25,18 @@ struct Travel {
             return "\(title)은(는) \(description)로 유명합니다. \n 매년 수많은 사람들이 방문하고 있으며, 평점 \(grade)를 유지하고 있습니다"
         }
         return "\(title)"
+    }
+    
+    var bgColor: UIColor
+    init(title: String, description: String?, travel_image: String?, grade: Double?, save: Int?, like: Bool? = nil, ad: Bool) {
+        self.title = title
+        self.description = description
+        self.travel_image = travel_image
+        self.grade = grade
+        self.save = save
+        self.like = like
+        self.ad = ad
+        self.bgColor = .getRandomColor()
     }
 }
 

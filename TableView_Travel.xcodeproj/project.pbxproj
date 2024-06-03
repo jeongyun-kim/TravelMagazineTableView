@@ -52,6 +52,7 @@
 		E0D80E642C00A90400EAF595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E632C00A90400EAF595 /* Assets.xcassets */; };
 		E0D80E672C00A90400EAF595 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E0D80E662C00A90400EAF595 /* Base */; };
 		E0D80E6F2C00A91200EAF595 /* Magazine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E6E2C00A91200EAF595 /* Magazine.swift */; };
+		E0E49F432C0D5D2100DA4BCB /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E49F422C0D5D2100DA4BCB /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		E0D80E662C00A90400EAF595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0D80E682C00A90400EAF595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0D80E6E2C00A91200EAF595 /* Magazine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magazine.swift; sourceTree = "<group>"; };
+		E0E49F422C0D5D2100DA4BCB /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				E05A62E92C04707200B4DDF9 /* UIImageView + Extension.swift */,
 				E05A62EF2C04838F00B4DDF9 /* UITableCell + Extension.swift */,
 				E0BC91BA2C070E97009EB638 /* UIView+ Extension.swift */,
+				E0E49F422C0D5D2100DA4BCB /* UIColor + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				E05A62EA2C04707200B4DDF9 /* UIImageView + Extension.swift in Sources */,
 				E05A62E52C046D2000B4DDF9 /* CityCell.swift in Sources */,
 				E0D80E6F2C00A91200EAF595 /* Magazine.swift in Sources */,
+				E0E49F432C0D5D2100DA4BCB /* UIColor + Extension.swift in Sources */,
 				E0D80E5B2C00A90400EAF595 /* AppDelegate.swift in Sources */,
 				E0C756592C0A1D140099B0E5 /* FilterTableViewCell.swift in Sources */,
 				E05A62F02C04838F00B4DDF9 /* UITableCell + Extension.swift in Sources */,

@@ -13,6 +13,7 @@ class CityAdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
+        view.backgroundColor = data?.bgColor
     }
 }
 
