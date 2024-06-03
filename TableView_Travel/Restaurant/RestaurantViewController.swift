@@ -16,8 +16,9 @@ class RestaurantViewController: UIViewController {
             restaurantTableView.reloadData()
         }
     }
+    
     // 필터링 목록 (= 전체보기, 한식, 양식 등)
-    var filterList = RestaurantList.categoryList
+    var filterCategoryList = RestaurantList.categoryList
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +45,11 @@ extension RestaurantViewController: setupUI {
     func setupTableView(_ tableView: UITableView) {
         tableView.delegate = self
         tableView.dataSource = self
+        
         let identifier = tableView == filterTableView ? FilterTableViewCell.identifier : RestaurantTableViewCell.identifier
         let xib = UINib(nibName: identifier, bundle: nil)
         tableView.register(xib, forCellReuseIdentifier: identifier)
+        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
@@ -68,7 +71,6 @@ extension RestaurantViewController {
     }
     
     @objc func likeBtnTapped(_ sender: UIButton) {
-        let row = filterTableView.indexPathForSelectedRow?.row
         result[sender.tag].isLiked.toggle()
         // 원본 데이터에 현재 좋아요 누른 데이터의 인덱스 찾아서 좋아요 반영
         if let idx = RestaurantList.restaurantArray.firstIndex(where: { $0.name == result[sender.tag].name}) {
@@ -80,25 +82,27 @@ extension RestaurantViewController {
 // MARK: TableViewExtension
 extension RestaurantViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableView == filterTableView ? filterList.count : result.count
+        return tableView == filterTableView ? filterCategoryList.count : result.count
     }
-    
+    // if-else => switch-case로 처리해보기 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == filterTableView {
+        switch tableView {
+        case filterTableView:
             guard let cell = filterTableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.identifier, for: indexPath) as? FilterTableViewCell else { return UITableViewCell() }
-            cell.configureCell(filterList[indexPath.row])
+            cell.configureCell(filterCategoryList[indexPath.row])
             return cell
-        } else {
+        case restaurantTableView:
             guard let cell = restaurantTableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.identifier, for: indexPath) as? RestaurantTableViewCell else { return UITableViewCell() }
             cell.configureCell(result[indexPath.row])
             cell.likeBtn.tag = indexPath.row
             cell.likeBtn.addTarget(self, action: #selector(likeBtnTapped), for: .touchUpInside)
             return cell
+        default: return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let category = filterList[indexPath.row]
+        let category = filterCategoryList[indexPath.row]
         result = RestaurantList.filteredData(category)
     }
 }
@@ -110,7 +114,7 @@ extension RestaurantViewController: UISearchBarDelegate {
         guard let row = filterTableView.indexPathForSelectedRow?.row else { return }
         guard let keyword = searchBar.text else { return }
         if keyword.isEmpty { // 검색어가 없다면 현재 선택중인 카테고리의 식당들 보여주기 
-            let category = filterList[row]
+            let category = filterCategoryList[row]
             result = RestaurantList.filteredData(category)
         } else { // 검색 결과는 이름, 카테고리, 주소로 확인
             result = result.filter {

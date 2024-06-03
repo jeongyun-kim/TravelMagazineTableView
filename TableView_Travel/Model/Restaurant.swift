@@ -228,11 +228,11 @@ extension RestaurantList {
         return result
     }
     
+    // if-else => switch-case
     static func filteredData(_ category: String) -> [Restaurant] {
-        if category == "전체보기" {
-            return restaurantArray
-        } else {
-            return restaurantArray.filter { $0.category == category }
+        switch category {
+        case "전체보기": return restaurantArray
+        default: return restaurantArray.filter { $0.category == category }
         }
     }
 }

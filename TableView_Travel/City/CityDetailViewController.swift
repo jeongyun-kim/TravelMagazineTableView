@@ -26,15 +26,16 @@ class CityDetailViewController: UIViewController {
     }
     
     func setupUI() {
+        descLabel.setDescLabel()
+        descLabel.numberOfLines = 0
         switch type {
         case .ad:
             descLabel.text = type.rawValue
             view.backgroundColor = data?.bgColor
+            descLabel.textColor = .black
         case .city:
             descLabel.text = data?.desc
         }
-        descLabel.setDescLabel()
-        descLabel.numberOfLines = 0
     }
     
     func setupNavigation() {
