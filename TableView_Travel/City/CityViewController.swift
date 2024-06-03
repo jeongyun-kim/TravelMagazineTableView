@@ -89,22 +89,22 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // 광고인지 아닌지에 따라 Present / Push
+    // 광고인지 아닌지에 따라 Present / Push => CityDetailViewController 재활용 및 enum 이용해서 광고인지 아닌지에 따라 present / push (0603)
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = cityList[indexPath.row]
+        let type = data.ad ? ViewType.ad : ViewType.city
         
-        if data.ad {
-            let sb = UIStoryboard(name: "CityAd", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: CityAdViewController.identifier) as! CityAdViewController
-            vc.data = data
+        let sb = UIStoryboard(name: "CityDetail", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: CityDetailViewController.identifier) as! CityDetailViewController
+        vc.data = data
+        vc.type = type
+        switch type {
+        case .ad:
             let navi = UINavigationController(rootViewController: vc)
-            navi.modalPresentationStyle = .fullScreen
             present(navi, animated: true)
-        } else {
-            let sb = UIStoryboard(name: "CityDetail", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: CityDetailViewController.identifier) as! CityDetailViewController
-            vc.data = data
+        case .city:
             navigationController?.pushViewController(vc, animated: true)
         }
+        
     }
 }

@@ -44,8 +44,6 @@
 		E0C756592C0A1D140099B0E5 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C756562C0A1D140099B0E5 /* FilterTableViewCell.swift */; };
 		E0D5E08D2C06FE5B009E2191 /* CityDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D5E08C2C06FE5B009E2191 /* CityDetail.storyboard */; };
 		E0D5E08F2C06FE63009E2191 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5E08E2C06FE63009E2191 /* CityDetailViewController.swift */; };
-		E0D5E0912C06FFD0009E2191 /* CityAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5E0902C06FFD0009E2191 /* CityAdViewController.swift */; };
-		E0D5E0932C06FFD6009E2191 /* CityAd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0D5E0922C06FFD6009E2191 /* CityAd.storyboard */; };
 		E0D5E0952C070465009E2191 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5E0942C070465009E2191 /* CityInfo.swift */; };
 		E0D80E5B2C00A90400EAF595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */; };
 		E0D80E5D2C00A90400EAF595 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D80E5C2C00A90400EAF595 /* SceneDelegate.swift */; };
@@ -91,8 +89,6 @@
 		E0C756572C0A1D140099B0E5 /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
 		E0D5E08C2C06FE5B009E2191 /* CityDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityDetail.storyboard; sourceTree = "<group>"; };
 		E0D5E08E2C06FE63009E2191 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
-		E0D5E0902C06FFD0009E2191 /* CityAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityAdViewController.swift; sourceTree = "<group>"; };
-		E0D5E0922C06FFD6009E2191 /* CityAd.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityAd.storyboard; sourceTree = "<group>"; };
 		E0D5E0942C070465009E2191 /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
 		E0D80E572C00A90400EAF595 /* TableView_Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableView_Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D80E5A2C00A90400EAF595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,8 +131,6 @@
 				E05A62DF2C046CFF00B4DDF9 /* City.storyboard */,
 				E0D5E08C2C06FE5B009E2191 /* CityDetail.storyboard */,
 				E0D5E08E2C06FE63009E2191 /* CityDetailViewController.swift */,
-				E0D5E0902C06FFD0009E2191 /* CityAdViewController.swift */,
-				E0D5E0922C06FFD6009E2191 /* CityAd.storyboard */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -335,7 +329,6 @@
 				E05A62E62C046D2000B4DDF9 /* CityCell.xib in Resources */,
 				E0D80E642C00A90400EAF595 /* Assets.xcassets in Resources */,
 				E0D80E672C00A90400EAF595 /* Base in Resources */,
-				E0D5E0932C06FFD6009E2191 /* CityAd.storyboard in Resources */,
 				E05A62B82C01B8A600B4DDF9 /* TravelMagazine.storyboard in Resources */,
 				E0ABCC3E2C06218500C23B25 /* City+CosmosCell.xib in Resources */,
 				E0BC91B82C07065D009EB638 /* PopularCityTableViewCell.xib in Resources */,
@@ -372,7 +365,6 @@
 				E05A62ED2C04746300B4DDF9 /* AdCell.swift in Sources */,
 				E05A62E82C046D9E00B4DDF9 /* TravelModel.swift in Sources */,
 				E0BC91B92C07065D009EB638 /* PopularCityTableViewCell.swift in Sources */,
-				E0D5E0912C06FFD0009E2191 /* CityAdViewController.swift in Sources */,
 				E0D5E0952C070465009E2191 /* CityInfo.swift in Sources */,
 				E0BC91BB2C070E97009EB638 /* UIView+ Extension.swift in Sources */,
 				E05A62DA2C04651A00B4DDF9 /* UILabel + Extension.swift in Sources */,

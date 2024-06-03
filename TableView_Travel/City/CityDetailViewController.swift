@@ -7,24 +7,33 @@
 
 import UIKit
 
+enum ViewType: String {
+    case ad = "광고 화면"
+    case city // ad에는 RawValue가 있지만 city는 없으므로 city의 RawValue는 city
+}
+
 class CityDetailViewController: UIViewController {
     @IBOutlet var descLabel: UILabel!
     
     var data: Travel?
+    var type: ViewType = .city
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupNavigation()
+        print("DetailViewLoaded")
     }
-}
-
-// MARK: UI 
-extension CityDetailViewController {
+    
     func setupUI() {
-        descLabel.text = data?.desc
-        // 구조체로 정의한 폰트 스타일 불러오기 : 폰트크기 14
-        descLabel.font = fontStyle.descFont
-        descLabel.textColor = .lightGray
+        switch type {
+        case .ad:
+            descLabel.text = type.rawValue
+            view.backgroundColor = data?.bgColor
+        case .city:
+            descLabel.text = data?.desc
+        }
+        descLabel.setDescLabel()
         descLabel.numberOfLines = 0
     }
     
