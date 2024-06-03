@@ -7,6 +7,22 @@
 
 import UIKit
 
+// CaseIterable : allCases로 모든 케이스를 배열형태로 가져올 수 있음
+enum listType: CaseIterable {
+    case all
+    case korean
+    case foreign
+    
+    // 연산 프로퍼티
+    var filteredList: [City] {
+        switch self {
+        case .all: return CityInfo.city
+        case .korean: return CityInfo.korean
+        case .foreign: return CityInfo.foreign
+        }
+    }
+}
+
 class PopularCityViewController: UIViewController {
     @IBOutlet var segmentControl: UISegmentedControl!
     @IBOutlet var tableView: UITableView!
@@ -17,7 +33,9 @@ class PopularCityViewController: UIViewController {
     
     lazy var searchKeyword: String = "" 
     
-    var filteredCityList = CityInfo.city {
+    var type: listType = .all
+    
+    var filteredCityList: [City] = CityInfo.city {
         didSet {
             tableView.reloadData()
         }
@@ -35,34 +53,31 @@ class PopularCityViewController: UIViewController {
 // MARK: 세그먼트 구성
 extension PopularCityViewController {
     func setupSegmentControl() {
-        let segmentTitles = ["모두", "국내", "해외"]
         let attribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .bold)]
         // 선택된 세그먼트에는 폰트 굵게
         segmentControl.setTitleTextAttributes(attribute, for: .selected)
+        
+        let segmentTitles = ["모두", "국내", "해외"]
         let segmentActions = [popularCityList, korean, foreign]
         
-        for i in (0..<segmentTitles.count) {
-            // 액션 구현 방법 1) setAction
-//            segmentControl.setAction(UIAction(handler: { _ in
-//                // 필터링 리스트에 필터링 반영
-//                self.filteredCityList = segmentActions[i]
-//            }), forSegmentAt: i)
-            // 각 세그먼트에 제목 넣어주기
-            segmentControl.setTitle(segmentTitles[i], forSegmentAt: i)
-            
+        // enumerated()로 (인덱스값, 데이터) 모두 받아오기 가능
+        for (idx, title) in segmentTitles.enumerated() {
+            segmentControl.setTitle(title, forSegmentAt: idx)
+            // 세그먼트 액션 구현 방법1) setAction
+            //let action = UIAction { _ in self.filteredCityList = segmentActions[idx] }
+            //segmentControl.setAction(action, forSegmentAt: idx)
         }
-        // 액션 구현 방법 2) addTarget -> selectedSegmentIndex
+        
+        // 세그먼트 액션 구현 방법 2) addTarget -> selectedSegmentIndex
         segmentControl.addTarget(self, action: #selector(segmentTapped), for: .valueChanged)
     }
     
+    // enum의 allCases 활용해보기(0603)
     @objc func segmentTapped() {
+        // 현재 세그먼트에서 선택한 인덱스 번호
         let selectedSegmentIdx = segmentControl.selectedSegmentIndex
-        switch selectedSegmentIdx {
-        case 0: filteredCityList = popularCityList
-        case 1: filteredCityList = korean
-        case 2: filteredCityList = foreign
-        default: filteredCityList = popularCityList
-        }
+        // listType을 allCases 형태로 가져와서 인덱스 번호로 해당 케이스가 반환해주는 리스트 가져오기 (모두/국내/해외)
+        filteredCityList = listType.allCases[selectedSegmentIdx].filteredList
     }
 }
 
@@ -114,12 +129,10 @@ extension PopularCityViewController: UISearchBarDelegate {
         guard let keyword = searchBar.text else { return }
         
         // 세그먼트 인덱스에 따라 다른 데이터로(모두/국내/해외)
-        switch segmentControl.selectedSegmentIndex {
-            case 0: filteredCityList = popularCityList
-            case 1: filteredCityList = korean
-            case 2: filteredCityList = foreign
-            default: filteredCityList = popularCityList
-        }
+        // 현재 세그먼트에서 선택한 인덱스 번호
+        let selectedSegmentIdx = segmentControl.selectedSegmentIndex
+        // listType을 allCases 형태로 가져와서 인덱스 번호로 해당 케이스가 반환해주는 리스트 가져오기 (모두/국내/해외)
+        filteredCityList = listType.allCases[selectedSegmentIdx].filteredList
     
         // 소문자 처리한 검색어가 공백을 제거했을 때, 1글자 이상이라면 검색 돌리기
         if keyword.lowercased().components(separatedBy: " ").joined().count > 0 {
