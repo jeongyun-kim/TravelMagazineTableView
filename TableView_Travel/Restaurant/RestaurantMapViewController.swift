@@ -8,6 +8,14 @@
 import UIKit
 import MapKit
 
+enum FoodCategory: String, CaseIterable {
+    case all = "전체보기"
+    case korean = "한식"
+    case japanes = "일식"
+    case chinese = "중식"
+    case western = "양식"
+}
+
 class RestaurantMapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
@@ -17,7 +25,7 @@ class RestaurantMapViewController: UIViewController {
         super.viewDidLoad()
         setupNavigation()
         setMapkit()
-        setupMapView(filteredData["전체보기"]!)
+        setupMapView(filteredData[FoodCategory.all.rawValue]!)
     }
 }
 
@@ -63,10 +71,10 @@ extension RestaurantMapViewController: setupUI {
 // MARK: Action
 extension RestaurantMapViewController {
     // alertAction 생성
-    func configureUIAlertAction(_ title: String) -> UIAlertAction {
-        let alertAction = UIAlertAction(title: title, style: .default) { _ in
+    func configureUIAlertAction(_ foodType: FoodCategory) -> UIAlertAction {
+        let alertAction = UIAlertAction(title: foodType.rawValue, style: .default) { _ in
             // key값(title)으로 데이터 불러오기
-            guard let result = self.filteredData[title] else { return }
+            guard let result = self.filteredData[foodType.rawValue] else { return }
             self.removeAnnotations()
             self.setupMapView(result)
         }
@@ -77,16 +85,9 @@ extension RestaurantMapViewController {
     @objc func filterBtnTapped(_ sender: UIButton) {
         // actionSheet 생성
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        // 등록할 액션 생성
-        let all = configureUIAlertAction("전체보기")
-        let korean = configureUIAlertAction("한식")
-        let japanese = configureUIAlertAction("일식")
-        let chinese = configureUIAlertAction("중식")
-        let western = configureUIAlertAction("양식")
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        // 액션 등록
-        [all, korean, japanese, chinese, western, cancel].forEach { action in
-            alert.addAction(action)
+        // 액션 생성 및 등록
+        FoodCategory.allCases.forEach { category in
+            alert.addAction(configureUIAlertAction(category))
         }
         // actionSheet 띄우기
         present(alert, animated: true)
