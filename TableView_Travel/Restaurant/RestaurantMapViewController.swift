@@ -68,7 +68,16 @@ class RestaurantMapViewController: UIViewController {
 
 // MARK: Location 처리 관련
 extension RestaurantMapViewController {
-    private func checkLocationAuthorization() {
+    // 디바이스 설정에 위치 권한이 켜져있는지 확인
+    private func checkDeviceLocationAuthorization() {
+        if CLLocationManager.locationServicesEnabled() { // 타입 메서드
+            checkCurrentLocationAuthorization()
+        } else {
+            showLocationDeniedAlert()
+        }
+    }
+    
+    private func checkCurrentLocationAuthorization() {
         var status: CLAuthorizationStatus // 권한 상태
         
         // iOS14를 기준으로 변했기 때문에 14이상인지 미만인지 체크할 것
@@ -101,7 +110,10 @@ extension RestaurantMapViewController {
         let alert = UIAlertController(title: LocationCase.alertTitle, message: LocationCase.alertMessage, preferredStyle: .alert)
         let cancel = UIAlertAction(title: LocationCase.cancel, style: .cancel)
         let goSetting = UIAlertAction(title: LocationCase.settingActionTitle, style: .default) { _ in
-            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) // 설정 열어주기
+            // 설정 열어주기
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url)
+            }
         }
         alert.addAction(cancel)
         alert.addAction(goSetting)
@@ -111,7 +123,7 @@ extension RestaurantMapViewController {
     // 사용자의 현재 위치 받아올 때, 원래 있던 Annotation 제거하고 다시 그리기
     @objc func gpsBtnTapped(_ sender: UIButton) {
         removeAnnotations(true)
-        checkLocationAuthorization()
+        checkDeviceLocationAuthorization()
     }
     
     private func setRegionOnMapViewAndMakeAnnotation(_ center: CLLocationCoordinate2D) {
@@ -138,7 +150,7 @@ extension RestaurantMapViewController: CLLocationManagerDelegate {
     
     // 권한의 상태 변경 시 호출
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
+        checkCurrentLocationAuthorization()
     }
 }
 
