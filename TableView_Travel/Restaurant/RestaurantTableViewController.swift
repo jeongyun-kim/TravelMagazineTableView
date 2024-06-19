@@ -49,8 +49,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     @objc func mapBtnTapped(_ sender: UIButton) {
-        let sb = UIStoryboard(name: "RestaurantMap", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: RestaurantMapViewController.identifier) as! RestaurantMapViewController
+        let vc = RestaurantMapViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

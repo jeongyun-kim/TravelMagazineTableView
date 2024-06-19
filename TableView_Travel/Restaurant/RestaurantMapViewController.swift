@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import CoreLocation
 import MapKit
+import SnapKit
 
 enum FoodCategory: String, CaseIterable {
     case all = "전체보기"
@@ -14,31 +16,102 @@ enum FoodCategory: String, CaseIterable {
     case japanes = "일식"
     case chinese = "중식"
     case western = "양식"
+    
+    var restauranList: [Restaurant] {
+        switch self {
+        case .all:
+            return RestaurantList.restaurantArray
+        case .korean, .japanes, .chinese, .western:
+            return RestaurantList.restaurantArray.filter { $0.category == self.rawValue }
+        }
+    }
 }
 
+// 위치 받아오는 방식 : 권한 확인(아이폰 내 설정이 켜져있는지) -> 켜져있다면 앱 권한 확인 -> 권한이 notDetermined라면 권한 허용해달라는 창 띄우기 -> 권한 변경되면 didChange 호출 -> 이 때, 다시 권한을 확인 -> 권한 상태가 whenInUse라면 didUpdateLocateMethod 통해서 사용자의 위치 받아오기
+
 class RestaurantMapViewController: UIViewController {
-    @IBOutlet var mapView: MKMapView!
-    
-    let filteredData = RestaurantList.filteredDataDict // 카테고리별로 분류된 데이터 [카테고리: [식당목록]]
+    let mapView = MKMapView()
+
+    lazy var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupHierarchy()
+        setupConstraints()
+        setupUI()
         setupNavigation()
-        setMapkit()
-        setupMapView(filteredData[FoodCategory.all.rawValue]!)
+        setupMapView(FoodCategory.all.restauranList)
+        locationManager.delegate = self
+    }
+    
+    private func setupHierarchy() {
+        view.addSubview(mapView)
+    }
+    
+    private func setupConstraints() {
+        mapView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
+    private func setupUI() {
+        view.backgroundColor = .systemBackground
+    }
+}
+
+extension RestaurantMapViewController {
+    private func checkLocationAuthorization() {
+        var status: CLAuthorizationStatus // 권한 상태
+        
+        // iOS14를 기준으로 변했기 때문에 14이상인지 미만인지 체크할 것
+        // - 2024년 6월 9일 기준 iOS16 이전 버전이 3%이므로 꼭 확인할 필요는 X
+        if #available(iOS 14.0, *) { // iOS14.0 이상은 다
+            status = locationManager.authorizationStatus
+        } else {
+            status = CLLocationManager.authorizationStatus()
+        }
+       
+        // 권한 상태에 따른 처리
+        switch status {
+        case .notDetermined: // 어떠한 권한도 선택되지 않은 상태 -> 권한 창 띄우기
+            // 위치 정확도 세팅(desiredAccuracy) : kCLLocationAccuracyBest가 Default
+            // 권한 요청 창 띄우기
+            locationManager.requestWhenInUseAuthorization()
+        case .denied: // 권한 거부 상태 -> iOS 설정창에서 설정변경해달라는 Alert 띄우기
+            // 다수의 앱이 설정화면으로 넘겨주는 Alert Action 사용 ex) 카카오맵, 당근, 요기요, 에버랜드
+            print("권한 거부 상태!")
+        case .authorizedWhenInUse: // 사용하는 동안만 허용 -> 위치 정보 받아오는 로직 구현
+            print("권한 허용 상태!")
+            locationManager.startUpdatingLocation()
+        default:
+            print("default")
+        }
+    }
+}
+
+extension RestaurantMapViewController: CLLocationManagerDelegate {
+    private func setRegionOnMapView() {}
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("권한의 상태가 업데이트됐어요")
+        
+        guard let location = locations.last?.coordinate else { return }
+        let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 100, longitudinalMeters: 100)
+        mapView.setRegion(region, animated: true)
+        
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print("권한의 상태가 변경됐어요")
+        checkLocationAuthorization()
     }
 }
 
 
 // MARK: MapKit 관련
 extension RestaurantMapViewController {
-    func setMapkit() {
-        // 지도의 좌표 (E1 충전소)
-        let center = RestaurantList.center
-        // 지정 좌표로부터 몇 미터까지 보여줄까~
-        mapView.region = MKCoordinateRegion(center: center, latitudinalMeters: 200, longitudinalMeters: 200)
-    }
-    
     // Annotation 세팅
     func setupMapView(_ restaurantList: [Restaurant]) {
         // 받아온 식당 리스트 돌면서 핀(Annotation) 박기
@@ -74,7 +147,7 @@ extension RestaurantMapViewController {
     func configureUIAlertAction(_ foodType: FoodCategory) -> UIAlertAction {
         let alertAction = UIAlertAction(title: foodType.rawValue, style: .default) { _ in
             // key값(title)으로 데이터 불러오기
-            guard let result = self.filteredData[foodType.rawValue] else { return }
+            let result = foodType.restauranList
             self.removeAnnotations()
             self.setupMapView(result)
         }

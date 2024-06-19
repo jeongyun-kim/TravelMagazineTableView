@@ -27,6 +27,7 @@
 		E0ABCC3A2C06215B00C23B25 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = E0ABCC392C06215B00C23B25 /* Cosmos */; };
 		E0ABCC3D2C06218500C23B25 /* City+CosmosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABCC3B2C06218500C23B25 /* City+CosmosCell.swift */; };
 		E0ABCC3E2C06218500C23B25 /* City+CosmosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABCC3C2C06218500C23B25 /* City+CosmosCell.xib */; };
+		E0BAE9992C22BEAD008F795F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E0BAE9982C22BEAD008F795F /* SnapKit */; };
 		E0BC91AF2C0705FB009EB638 /* PopularCity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BC91AE2C0705FB009EB638 /* PopularCity.storyboard */; };
 		E0BC91B12C070615009EB638 /* PopularCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BC91B02C070615009EB638 /* PopularCityViewController.swift */; };
 		E0BC91B82C07065D009EB638 /* PopularCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0BC91B72C07065D009EB638 /* PopularCityTableViewCell.xib */; };
@@ -105,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0BAE9992C22BEAD008F795F /* SnapKit in Frameworks */,
 				E0ABCC3A2C06215B00C23B25 /* Cosmos in Frameworks */,
 				E05A62BD2C01C1D300B4DDF9 /* Kingfisher in Frameworks */,
 			);
@@ -278,6 +280,7 @@
 			packageProductDependencies = (
 				E05A62BC2C01C1D300B4DDF9 /* Kingfisher */,
 				E0ABCC392C06215B00C23B25 /* Cosmos */,
+				E0BAE9982C22BEAD008F795F /* SnapKit */,
 			);
 			productName = TableView_Travel;
 			productReference = E0D80E572C00A90400EAF595 /* TableView_Travel.app */;
@@ -310,6 +313,7 @@
 			packageReferences = (
 				E05A62BB2C01C1D300B4DDF9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				E0ABCC382C06215B00C23B25 /* XCRemoteSwiftPackageReference "Cosmos" */,
+				E0BAE9972C22BEAD008F795F /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = E0D80E582C00A90400EAF595 /* Products */;
 			projectDirPath = "";
@@ -619,6 +623,14 @@
 				minimumVersion = 25.0.1;
 			};
 		};
+		E0BAE9972C22BEAD008F795F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -631,6 +643,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E0ABCC382C06215B00C23B25 /* XCRemoteSwiftPackageReference "Cosmos" */;
 			productName = Cosmos;
+		};
+		E0BAE9982C22BEAD008F795F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0BAE9972C22BEAD008F795F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
