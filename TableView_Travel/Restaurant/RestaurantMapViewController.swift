@@ -10,55 +10,63 @@ import CoreLocation
 import MapKit
 import SnapKit
 
-enum FoodCategory: String, CaseIterable {
-    case all = "전체보기"
-    case korean = "한식"
-    case japanes = "일식"
-    case chinese = "중식"
-    case western = "양식"
-    
-    var restauranList: [Restaurant] {
-        switch self {
-        case .all:
-            return RestaurantList.restaurantArray
-        case .korean, .japanes, .chinese, .western:
-            return RestaurantList.restaurantArray.filter { $0.category == self.rawValue }
-        }
-    }
-}
-
 // 위치 받아오는 방식 : 권한 확인(아이폰 내 설정이 켜져있는지) -> 켜져있다면 앱 권한 확인 -> 권한이 notDetermined라면 권한 허용해달라는 창 띄우기 -> 권한 변경되면 didChange 호출 -> 이 때, 다시 권한을 확인 -> 권한 상태가 whenInUse라면 didUpdateLocateMethod 통해서 사용자의 위치 받아오기
 
 class RestaurantMapViewController: UIViewController {
     let mapView = MKMapView()
+    
+    lazy var gpsButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+        button.addTarget(self, action: #selector(gpsBtnTapped), for: .touchUpInside)
+        return button
+    }()
 
     lazy var locationManager = CLLocationManager()
+    
+    lazy var restaurantList: [Restaurant] = FoodCategory.all.restauranList
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHierarchy()
         setupConstraints()
-        setupUI()
         setupNavigation()
-        setupMapView(FoodCategory.all.restauranList)
-        locationManager.delegate = self
+        setupUI()
+        makeRestaurantAnnotation(restaurantList)
     }
     
     private func setupHierarchy() {
         view.addSubview(mapView)
+        view.addSubview(gpsButton)
     }
     
     private func setupConstraints() {
         mapView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        gpsButton.snp.makeConstraints { make in
+            make.top.trailing.equalTo(view.safeAreaLayoutGuide).inset(16)
+            make.size.equalTo(40)
+        }
+    }
+    
+    func setupNavigation() {
+        navigationItem.title = "지도로 식당 모아보기"
+        let actionSheet = UIBarButtonItem(title: "필터", style: .plain, target: self, action: #selector(filterBtnTapped))
+        navigationItem.rightBarButtonItem = actionSheet
     }
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
+        locationManager.delegate = self
     }
 }
 
+// MARK: Location 처리 관련
 extension RestaurantMapViewController {
     private func checkLocationAuthorization() {
         var status: CLAuthorizationStatus // 권한 상태
@@ -79,32 +87,57 @@ extension RestaurantMapViewController {
             locationManager.requestWhenInUseAuthorization()
         case .denied: // 권한 거부 상태 -> iOS 설정창에서 설정변경해달라는 Alert 띄우기
             // 다수의 앱이 설정화면으로 넘겨주는 Alert Action 사용 ex) 카카오맵, 당근, 요기요, 에버랜드
-            print("권한 거부 상태!")
+            gpsButton.setImage(UIImage(systemName: "location.circle"), for: .normal)
+            showLocationDeniedAlert()
         case .authorizedWhenInUse: // 사용하는 동안만 허용 -> 위치 정보 받아오는 로직 구현
-            print("권한 허용 상태!")
-            locationManager.startUpdatingLocation()
+            gpsButton.setImage(UIImage(systemName: "location.circle.fill"), for: .normal)
+            locationManager.startUpdatingLocation() // 위치 업데이트
         default:
-            print("default")
+            break
         }
     }
-}
-
-extension RestaurantMapViewController: CLLocationManagerDelegate {
-    private func setRegionOnMapView() {}
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("권한의 상태가 업데이트됐어요")
-        
-        guard let location = locations.last?.coordinate else { return }
-        let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+    private func showLocationDeniedAlert() {
+        let alert = UIAlertController(title: LocationCase.alertTitle, message: LocationCase.alertMessage, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: LocationCase.cancel, style: .cancel)
+        let goSetting = UIAlertAction(title: LocationCase.settingActionTitle, style: .default) { _ in
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) // 설정 열어주기
+        }
+        alert.addAction(cancel)
+        alert.addAction(goSetting)
+        present(alert, animated: true)
+    }
+    
+    // 사용자의 현재 위치 받아올 때, 원래 있던 Annotation 제거하고 다시 그리기
+    @objc func gpsBtnTapped(_ sender: UIButton) {
+        removeAnnotations(true)
+        checkLocationAuthorization()
+    }
+    
+    private func setRegionOnMapViewAndMakeAnnotation(_ center: CLLocationCoordinate2D) {
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 100, longitudinalMeters: 100)
         mapView.setRegion(region, animated: true)
         
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
+        annotation.title = LocationCase.userLocation
+        mapView.addAnnotation(annotation)
+    }
+}
+
+// MARK: LocationMangerDelegate
+extension RestaurantMapViewController: CLLocationManagerDelegate {
+    // 권한 상태 업데이트 시 호출
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // 권한이 제대로 허용되어있다면 내 위치 받아오기
+        guard let location = locations.last?.coordinate else { return }
+        setRegionOnMapViewAndMakeAnnotation(location)
+        // 자주 받아오지 않게 처리
         locationManager.stopUpdatingLocation()
     }
     
+    // 권한의 상태 변경 시 호출
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        print("권한의 상태가 변경됐어요")
         checkLocationAuthorization()
     }
 }
@@ -113,7 +146,7 @@ extension RestaurantMapViewController: CLLocationManagerDelegate {
 // MARK: MapKit 관련
 extension RestaurantMapViewController {
     // Annotation 세팅
-    func setupMapView(_ restaurantList: [Restaurant]) {
+    func makeRestaurantAnnotation(_ restaurantList: [Restaurant]) {
         // 받아온 식당 리스트 돌면서 핀(Annotation) 박기
         for restaurant in restaurantList {
             let coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
@@ -125,31 +158,24 @@ extension RestaurantMapViewController {
     }
 
     // Annotation 다 없애기
-    func removeAnnotations() {
+    func removeAnnotations(_ isUserLocation: Bool) {
         let annotations = mapView.annotations
-        mapView.removeAnnotations(annotations)
+        var annotationsToRemove: [MKAnnotation] = []
+        if isUserLocation {
+            annotationsToRemove = annotations.filter { $0.title == LocationCase.userLocation }
+        } else {
+            annotationsToRemove = annotations.filter { $0.title != LocationCase.userLocation }
+        }
+        mapView.removeAnnotations(annotationsToRemove)
     }
-}
-
-// MARK: Navigation
-// 연습삼아 만든 setupUI 프로토콜 채택
-extension RestaurantMapViewController: setupUI {
-    func setupNavigation() {
-        navigationItem.title = "지도로 식당 모아보기"
-        let actionSheet = UIBarButtonItem(title: "필터", style: .plain, target: self, action: #selector(filterBtnTapped))
-        navigationItem.rightBarButtonItem = actionSheet
-    }
-}
-
-// MARK: Action
-extension RestaurantMapViewController {
+    
     // alertAction 생성
     func configureUIAlertAction(_ foodType: FoodCategory) -> UIAlertAction {
         let alertAction = UIAlertAction(title: foodType.rawValue, style: .default) { _ in
             // key값(title)으로 데이터 불러오기
-            let result = foodType.restauranList
-            self.removeAnnotations()
-            self.setupMapView(result)
+            self.restaurantList = foodType.restauranList
+            self.removeAnnotations(false)
+            self.makeRestaurantAnnotation(self.restaurantList)
         }
         return alertAction
     }
@@ -162,6 +188,7 @@ extension RestaurantMapViewController {
         FoodCategory.allCases.forEach { category in
             alert.addAction(configureUIAlertAction(category))
         }
+        alert.addAction(UIAlertAction(title: LocationCase.cancel, style: .cancel))
         // actionSheet 띄우기
         present(alert, animated: true)
     }

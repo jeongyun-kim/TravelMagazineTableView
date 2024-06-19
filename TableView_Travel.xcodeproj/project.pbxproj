@@ -28,6 +28,7 @@
 		E0ABCC3D2C06218500C23B25 /* City+CosmosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABCC3B2C06218500C23B25 /* City+CosmosCell.swift */; };
 		E0ABCC3E2C06218500C23B25 /* City+CosmosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0ABCC3C2C06218500C23B25 /* City+CosmosCell.xib */; };
 		E0BAE9992C22BEAD008F795F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E0BAE9982C22BEAD008F795F /* SnapKit */; };
+		E0BAE99B2C22E16B008F795F /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BAE99A2C22E16B008F795F /* Resources.swift */; };
 		E0BC91AF2C0705FB009EB638 /* PopularCity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BC91AE2C0705FB009EB638 /* PopularCity.storyboard */; };
 		E0BC91B12C070615009EB638 /* PopularCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BC91B02C070615009EB638 /* PopularCityViewController.swift */; };
 		E0BC91B82C07065D009EB638 /* PopularCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0BC91B72C07065D009EB638 /* PopularCityTableViewCell.xib */; };
@@ -73,6 +74,7 @@
 		E05A62EF2C04838F00B4DDF9 /* UITableCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableCell + Extension.swift"; sourceTree = "<group>"; };
 		E0ABCC3B2C06218500C23B25 /* City+CosmosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CosmosCell.swift"; sourceTree = "<group>"; };
 		E0ABCC3C2C06218500C23B25 /* City+CosmosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "City+CosmosCell.xib"; sourceTree = "<group>"; };
+		E0BAE99A2C22E16B008F795F /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		E0BC91AE2C0705FB009EB638 /* PopularCity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopularCity.storyboard; sourceTree = "<group>"; };
 		E0BC91B02C070615009EB638 /* PopularCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCityViewController.swift; sourceTree = "<group>"; };
 		E0BC91B62C07065D009EB638 /* PopularCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCityTableViewCell.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				E0D80E632C00A90400EAF595 /* Assets.xcassets */,
 				E0D80E652C00A90400EAF595 /* LaunchScreen.storyboard */,
 				E0D80E682C00A90400EAF595 /* Info.plist */,
+				E0BAE99A2C22E16B008F795F /* Resources.swift */,
 			);
 			path = TableView_Travel;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				E010639A2C05C34900CA9E93 /* MagazineTableViewController.swift in Sources */,
 				E0C756552C0A1B7A0099B0E5 /* RestaurantViewController.swift in Sources */,
 				E05A62BA2C01BB1700B4DDF9 /* MagazineCell.swift in Sources */,
+				E0BAE99B2C22E16B008F795F /* Resources.swift in Sources */,
 				E0D5E08F2C06FE63009E2191 /* CityDetailViewController.swift in Sources */,
 				E0C756512C0A17BA0099B0E5 /* RestaurantTableViewCell.swift in Sources */,
 				E0BC91CE2C0875A7009EB638 /* MyProtocol.swift in Sources */,
